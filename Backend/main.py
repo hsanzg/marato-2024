@@ -5,7 +5,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from patient import Patient, cargar_paciente
+from patient import Patient, cargar_paciente, NOMBRES_TRATS
 
 # Tipos.
 
@@ -90,7 +90,7 @@ def paciente(req: Request, pac_id: int):
   pac = cargar_paciente(pac_id)
   return templates.TemplateResponse(
     name='especialista.html',
-    context={'request': req, 'pac': pac}
+    context={'request': req, 'pac': pac, 'trat_names': NOMBRES_TRATS}
   )
 
 # Páginas urgencia.
@@ -111,7 +111,7 @@ def resultado(req: Request, pac_id: int, res_id: int):
     res = pac.urgencias[res_id]
     return templates.TemplateResponse(
       name='resultado.html',
-      context={'request': req, 'pac': pac, 'res': res, 'res_ix': res_id }
+      context={'request': req, 'pac': pac, 'res': res, 'res_ix': res_id, 'trat_names': NOMBRES_TRATS }
     )
   except IndexError:
     return RedirectResponse(f'/urgencia/{pac_id}', status_code=303) # POST->GET

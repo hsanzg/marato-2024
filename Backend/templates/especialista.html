@@ -7,7 +7,7 @@
   <ul class="list-group list-group-flush">
     {% for trat, valor in pac.tratamientos.items() %}
       {% if valor %}
-        <li class="list-group-item">{{trat}}</li>
+        <li class="list-group-item">{{trat_names[trat]}}</li>
       {% endif %}
     {% endfor %}
   </ul>
@@ -24,8 +24,8 @@
       <li class="list-group-item flex">
         <span><strong>Fecha:</strong> {{visita.fecha.strftime('%d/%m/%y %H:%M') }}</span>
         <ul>
-          <li><em>Tratamientos asignados:</em> {{visita.tratamientos_dados | join(', ')}}.</li>
-          <li><em>El algoritmo sugirió:</em> {{visita.tratamientos_algo | join(', ')}}.</li>
+          <li><em>Tratamientos asignados:</em> {%for trat in visita.tratamientos_dados %}{{trat_names[trat]}}{%if not loop.last%}, {%endif%}{%endfor%}.</li>
+          <li><em>El algoritmo sugirió:</em> {%for trat in visita.tratamientos_algo %}{{trat_names[trat]}}{%if not loop.last%}, {%endif%}{%endfor%}.</li>
         </ul>
       </li>
     {% endfor %}

@@ -2,12 +2,22 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from typing import List, Dict
 
-TRATAMIENTOS_DISPONIBLES = [
-  'piperacilina_tazobactam', 'cefalosporina', 'levofloxacino', 'oseltamivir', 'ganciclovir', 'sulfametoxazol_trimetoprim', 'ac_folic', 'omeprazol', 'n_acetilcisteina', 'morfina', 'bemiparina', 'metilprednisolona', 'losartan', 'calci_vitamina_d', 'tinzaparina'
-]
-
 NOMBRES_TRATS = {
-  #'piperacilina_tazobactam', 'cefalosporina', 'levofloxacino', 'oseltamivir', 'ganciclovir', 'sulfametoxazol_trimetoprim', 'ac_folic', 'omeprazol', 'n_acetilcisteina', 'morfina', 'bemiparina', 'metilprednisolona', 'losartan', 'calci_vitamina_d', 'tinzaparina'
+  'piperacilina_tazobactam': 'Piperacilina/Tazobactam 4g/0,5g cada 8h e.v.',
+  'cefalosporina': 'Cefalosporina 3ª generació',
+  'levofloxacino': 'Levofloxacino 500mg/24h v.o.',
+  'oseltamivir': 'Oseltamivir 75mg/12h v.o.',
+  'ganciclovir': 'Ganciclovir 5mg/Kg pes/12h e.v.',
+  'sulfametoxazol_trimetoprim': 'Sulfametoxazol/trimetoprim 800/160 mg/12h v.o.',
+  'ac_folic': 'Àc. Fòlic',
+  'omeprazol': 'Omeprazol 20mg/12-24h e.v.',
+  'n_acetilcisteina': 'N-acetilcisteïna 600mg/8h v.o.',
+  'morfina': 'Morfina 2,5-5mg s.c.',
+  'bemiparina': 'Bemiparina 2500-3500 UI/0,2 mL (segons Kg pes) s.c./dia',
+  'metilprednisolona': 'Metilprednisolona 1-2 mg/Kg pes/d e.v.',
+  'losartan': 'Losartan 50mg/24h v.o.',
+  'calci_vitamina_d': 'Calci + Vitamina D 500mg/400 UI 2comp/d v.o.',
+  'tinzaparina': 'Tinzaparina 20000UI/0,5-0,9 mL (segons Kg pes)'
 }
 
 # Tipos de diagnóstico:
@@ -50,7 +60,7 @@ class Patient:
       "auscultacio_de_xiulets": False, #  (sibilants) o altres sorolls diferents als que té el pacient de base
       "to_blau_distal": False # als dits o llavis
     }
-    self.tratamientos = {nom: False for nom in TRATAMIENTOS_DISPONIBLES}
+    self.tratamientos = {trat_id: False for trat_id in NOMBRES_TRATS.keys()}
     self.urgencias = []
     self.pruebas = []
     self.MPID = False
