@@ -4,9 +4,20 @@ Página de escaneo de QR. Una vez leído, redirige a página especialista o urge
 
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
+const urlParams = new URLSearchParams(window.location.search);
+const destino = urlParams.get('destino');
+function cargarPaginaDestino(idPaciente) {
+  if (destino === 'especialista') {
+    window.location.href = `especialista.html?id=${idPaciente}`;
+  } else (destino === 'urgencia') {
+    window.location.href = `urgencia.html?id=${idPaciente}`;
+  }
+}
+
 function onScanSuccess(decodedText, decodedResult) {
   // handle the scanned code as you like, for example:
   console.log(`Code matched = ${decodedText}`, decodedResult);
+  cargarPaginaDestino(decodedText);
 }
 
 function onScanFailure(error) {

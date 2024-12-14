@@ -13,6 +13,16 @@ def guardar_paciente(id: Annotated[str, Form()],
   #return {'id': id, 'nombre': nombre}
   return RedirectResponse(f'verqr.html?id={id}')
 
+@app.get('/datos_especialista.html')
+def datos_especialista(id_paciente: Annotated[str, Form()]):
+  print(f'cargando datos de paciente {id_paciente} para especialista')
+  return {'id': id_paciente}
+
+@app.get('/datos_urgencia.html')
+def datos_urgencia(id_paciente: Annotated[str, Form()]):
+  print(f'cargando datos de paciente {id_paciente} para urgencia')
+  return {'id': id_paciente}
+
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
     return {"item_id": item_id, "query": q}

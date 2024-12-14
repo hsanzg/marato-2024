@@ -7,3 +7,10 @@ Formulario de paciente va aquí.
 </form>
 
 Una vez actualizado, vamos a página con QR.
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+
+console.log(`cargando datos para ${id}`)
+</script>
