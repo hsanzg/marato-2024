@@ -37,20 +37,8 @@
 <div class="mt-4 card tarjeta">
   <div class="card-body">
     <div class="form-header">
-      <h3 class="card-title">agudMPID</h3>
+      <h3 class="card-title">Causes d’agudització</h3>
     </div>
-    <!-- "Insuficiència cardíaca esquerra",
-      "Tromboembolisme pulmonar (inclosa embòlia grassa)",
-      "Fàrmacs",
-      "Transfusió de sang",
-      "Inhalació aguda de tòxics pulmonars",
-      "Reflux gastroesofàgic (RGE)",
-      "Causes d’abdomen agut (pancreatitis, apendicitis, peritonitis, etc.)",
-      "Intervencions quirúrgiques en les setmanes prèvies",
-      "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies",
-      "Pneumotòrax",
-      "Contusió pulmonar",
-      "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"-->
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="insuficiencia_cardiaca_esquerra" {% if pac.agudMPID['insuficiencia_cardiaca_esquerra'] %}checked{% endif %}>
       <label class="form-check-label">
@@ -123,10 +111,9 @@
         Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)
       </label>
     </div>
-
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary" type="submit">Guardar</button>
   </div>
-  <hr class="my-4">
-  <button class="w-100 btn btn-primary" type="submit">Guardar</button>
 </div>
 </form>
 

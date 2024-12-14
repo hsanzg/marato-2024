@@ -65,15 +65,16 @@ async def guardar_sintomas(req: Request, dest: str):
   print('redirigiendo a QR de paciente')
   return RedirectResponse(dest, status_code=303) # POST->GET
 
+# En realidad es para guardar agudMPID (Causes d’agudització)
 @app.post('/guardar_malalties')
 async def guardar_malalties(req: Request, dest: str):
   async with req.form() as form:
     id = form['id']
     pac = cargar_paciente(id)
-    print('guardando datos de paciente')
-    for sin_name in pac.sintomas.keys():
+    print('guardando agudMPID de paciente')
+    for sin_name in pac.agudMPID.keys():
       new_val = sin_name in form
-      pac.sintomas[sin_name] = new_val
+      pac.agudMPID[sin_name] = new_val
       print(f'{sin_name} -> {new_val}')
   print('redirigiendo a QR de paciente')
   return RedirectResponse(dest, status_code=303) # POST->GET
