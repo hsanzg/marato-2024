@@ -59,7 +59,11 @@ class Patient:
     }
     self.urgencias = []
     self.pruebas = []
+    self.MPID = False
     self.AgudMPID = {
+      'virus'"virus": False,
+      "cmv": False,
+      "pneumocystis jirovecii": False,
       'insuficiencia_cardiaca_esquerra': False,
       'tromboembolisme_pulmonar': False,
       'farmacs': False,
