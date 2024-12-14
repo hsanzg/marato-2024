@@ -1,44 +1,55 @@
 {% include 'header_con_todo.html' %}
 Formulario de paciente va aquí.
 
-<div class="form-container">
+<div class="form-check">
     <div class="form-header">
-      <h1>Register</h1>
-    </div>
-    <form class="needs-validation" novalidate>
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-        <div class="invalid-feedback">
-          Please enter your name.
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-        <div class="invalid-feedback">
-          Please enter a valid email.
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-        <div class="invalid-feedback">
-          Please enter a password.
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="confirm-password" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
-        <div class="invalid-feedback">
-          Passwords must match.
-        </div>
-      </div>
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary">Register</button>
-      </div>
+    <h1>Formulari de Símptomes</h1>
+    <div>
+    <h3>¿Cuáles de estos síntomas presentas?</h3>
+    <form action="#" method="post">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes
+        </label>
+	<div>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Increment mucositat i congestió nasal
+        </label>
+	<div>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Increment mucositat i dolor gola
+        </label>
+	<div>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Increment mucositat i febre
+        </label>
+	<div>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Dolor toràcic
+        </label>
+	<div>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Xiulets
+        </label>
+	<div>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola
+        </label>
+	<div>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+        <label class="form-check-label" for="flexCheckDefault">
+            Dolor toràcic e increment d’ofec sense tos ni altres símptomes
+        </label>
+	<div>
+        <button type="submit">Enviar</button>
     </form>
-  </div>
+   </div>
 </div>
 
 <form action="/guardar_paciente" method="POST">
