@@ -56,6 +56,7 @@ const id = urlParams.get('id') || '1';
 idpac.setAttribute('value', id);
 
 console.log(`cargando datos para ${id}`);
+// todo: los datos ya los carga la template; quitar llamada a 'datos_paciente'.
 fetch(`/datos_paciente/${id}`, {
   method: 'GET',
   headers: {

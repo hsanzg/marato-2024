@@ -33,6 +33,7 @@ def paciente(req: Request, id: int):
     name='verqr.html', context={'request': req, 'nombrePac': pac.nombre}
   )
 
+# deprecado, intentar no usar.
 @app.get('/datos_paciente/{id}')
 def datos_paciente(id: int):
   print(f'cargando datos de paciente {id}')
