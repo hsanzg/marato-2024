@@ -1,7 +1,5 @@
 <div class="card tarjeta">
   <div class="card-body">
-    <p> Benvingut {{pac.nombre}} </p>
-    <hr class="my-4">
     <div class="form-header">
       <h3 class="card-title">Formulari de Símptomes</h3>
     </div>
@@ -60,11 +58,9 @@
           Mal estat general
       </label>
     </div>
-    <div class="form-check">
-      <div class="form-floating mb-3">
-        <input type="string" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Altres símptomes</label>
-      </div>
+    <div class="my-3">
+      <label class="form-label">Altres símptomes</label>
+      <textarea class="form-control" rows="2"></textarea>
     </div>
     {% if sin_todos %}
 
@@ -107,13 +103,8 @@
           To blau distal
       </label>
     </div>
-    <div class="form-check">
-      <div class="form-floating mb-3">
-        <input type="string" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Altres condicions</label>
-      </div>
+    <div class="my-3">
+      <label class="form-label">Altres condicions</label>
+      <textarea class="form-control" rows="2"></textarea>
     </div>
-
     {% endif %}
-  </div>
-</div>
