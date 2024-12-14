@@ -33,6 +33,7 @@ Herramientas posibles para crear la página web:
 
 
 Flujo de la Aplicación:
+
 (Usted es...)
 - Paciente
 - Médico especialista
@@ -46,7 +47,7 @@ Flujo de la Aplicación:
 
   Si médico de urgencia:
 
-  Escanear QR -> Introducir síntomas -> Obtención de resultado/s del algoritmo -> Registro de resultados y checkbox del tratamiento/s subministrado/s.
+  Escanear QR -> Introducir síntomas -> Obtención de resultado/s del algoritmo -> Registro de resultado/s y checkbox del tratamiento/s subministrado/s -> QR actualizado
 
   
 
