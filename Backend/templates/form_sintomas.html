@@ -3,8 +3,8 @@
     <p> Benvingut {{pac.nombre}} </p>
     <hr class="my-4">
     <div class="form-header">
-      <h3>Formulari de Símptomes</h3>
-    <div>
+      <h3 class="card-title">Formulari de Símptomes</h3>
+    </div>
     <p>¿Quins d'aquets síntomes presentes?</p>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="increment_o_aparcio_ofeg" {% if pac.sintomas['increment_o_aparcio_ofeg'] %}checked{% endif %}>
@@ -117,6 +117,3 @@
     {% endif %}
   </div>
 </div>
-
-
-
