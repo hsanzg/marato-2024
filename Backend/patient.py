@@ -2,12 +2,19 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from typing import List, Dict
 
+# Tipos de diagnóstico:
+# - concret_pneumo
+# - concret_no_pneumo
+# - no_concret
+
 
 class Visita:
-  def __init__(self, tratamientos_dados, tratamientos_algo):
-    self.tratamientos_dados = tratamientos_dados
-    self.tratamientos_algo = tratamientos_algo
+  def __init__(self, diagnostico: str):
+    self.diagnostico = diagnostico
     self.fecha = datetime.now()
+    # A rellenar por el algoritmo.
+    self.tratamientos_dados = []
+    self.tratamientos_algo = []
 
 class Patient:
   def __init__(self, id, nombre):
@@ -25,7 +32,7 @@ class Patient:
       'xiulets': False,
       'mal_estat_general': False,
       'altres_simptomes': False,
-      # Información introducïda por el médico de urgéncia
+      # Información introducida por el médico de urgéncia.
       "desaturacio": False,
       "increment_respiracions": False, #  per minut o respiracions per minut > 19
       "tiratge_muscular_per_respirar": False,
@@ -51,10 +58,7 @@ class Patient:
       'Tinzaparina 20000UI/0,5-0,9 mL (segons Kg pes)': False
     }
     self.urgencias = [
-      Visita(
-        tratamientos_dados=['Cefalosporina 3ª generació'],
-        tratamientos_algo=['Cefalosporina 3ª generació'],
-      )
+      Visita()
     ]
     self.pruebas = []
     self.agudMPID = {
@@ -92,43 +96,10 @@ class Patient:
     #   "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
     # )
 
-    def introducir_sintomas_graves(self, sintomas_graves: [str]):
-        """
-        Añade una lista de síntomas graves al atributo 'síntomas' del paciente.
-        Esta función es llamada por el médico de urgencia solamente.
-        """
-        sintomas_a_agregar = [
-            "Febre",
-            "Desaturació",
-            "Increment respiracions per minut o respiracions per minut > 19",
-            "Tiratge muscular per respirar",
-            "Ofeg en repòs",
-            "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
-            "To blau distal als dits o llavis"
-        ]
-        for sintoma in sintomas_graves:
-            if sintoma in sintomas_a_agregar and sintoma not in self.síntomas:
-                self.síntomas.append(sintoma)
-
-    def introducir_sintomas_generales(self, sintomas_generales: [str]):
-        """
-        Añade una lista de síntomas generales al atributo 'síntomas' del paciente.
-        Esta función es llamada por el médico especialista o por el paciente
-        """
-        sintomas_a_agregar = [
-            "Increment o aparició d’ofeg i/o tos en els darrers dies (maxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
-            "Increment mucositat i congestió nasal",
-            "Increment mucositat i dolor gola",
-            "Increment mucositat i febre",
-            "Dolor toràcic",
-            "Xiulets",
-            "Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola",
-            "Dolor toràcic e. increment d’ofec sense tos ni altres símptomes"
-        ]
-        for sintoma in sintomas_generales:
-            if sintoma in sintomas_a_agregar and sintoma not in self.síntomas:
-                self.síntomas.append(sintoma)
-
+    def crear_visita(diagnostico: str) -> int:
+      new_ix = len(self.urgencias)
+      self.urgencias.append(Visita(diagnostico))
+      return new_ix
 
 pacientes = [
   Patient(0, 'Juan García López'),

@@ -1,19 +1,28 @@
 {% include 'header_con_todo.html' %}
 
-<form action="/guardar_sintomas?dest=/urgencia/{{pac.id}}" method="POST">
+<form action="/guardar_sintomas?correr_algo=1" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
   {% set sin_todos = True %}
   {% include 'form_sintomas.html' %}
   <hr class="my-4">
-  <button class="w-100 btn btn-primary" type="submit">Guardar</button>
+  <button class="w-100 btn btn-primary" type="submit">Continuar</button>
   </div></div>
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">Diagnóstico</h3>
+    <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off" checked>
+    <label class="btn" for="option5">Pneumònia</label>
+
+    <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
+    <label class="btn" for="option6">No pneumònia</label>
+
+    <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off" disabled>
+    <label class="btn" for="option7">Se desconoce</label>
+
+    <!--<input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
+    <label class="btn" for="option8">Radio</label>
+    <input type="hidden" name="" value="1">-->
+  </div>
+</div>
 </form>
-
-
-<script>
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
-
-console.log(`cargando datos para ${id}`)
-</script>
 {% include 'footer_con_todo.html' %}

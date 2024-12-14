@@ -53,7 +53,7 @@ def paciente(req: Request, id: str):
   )
 
 @app.post('/guardar_sintomas')
-async def guardar_sintomas(req: Request, dest: str):
+async def guardar_sintomas(req: Request, dest: str = '', correr_algo: bool = False, diag: str = ''):
   async with req.form() as form:
     id = form['id']
     pac = cargar_paciente(id)
@@ -62,7 +62,11 @@ async def guardar_sintomas(req: Request, dest: str):
       new_val = sin_name in form
       pac.sintomas[sin_name] = new_val
       print(f'{sin_name} -> {new_val}')
-  print('redirigiendo a QR de paciente')
+  if correr_algo:
+    print('corriendo algoritmo para generar visita')
+    res_ix = pac.crear_visita(diag) # diagnóstico
+    dest = f'/resultado/{id}/{res_ix}'
+  print(f'redirigiendo a {dest}')
   return RedirectResponse(dest, status_code=303) # POST->GET
 
 # En realidad es para guardar agudMPID (Causes d’agudització)
@@ -98,3 +102,12 @@ def paciente(req: Request, pac_id: int):
     name='urgencia.html',
     context={'request': req, 'pac': pac}
   )
+
+@app.get('/resultado/{id}', response_class=HTMLResponse)
+def paciente(req: Request, id: str):
+  pac = cargar_paciente(id)
+  return templates.TemplateResponse(
+    name='paciente.html',
+    context={'request': req, 'pac': pac}
+  )
+
