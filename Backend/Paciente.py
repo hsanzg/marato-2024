@@ -1,4 +1,4 @@
-class Pacient:
+class Paciente:
     id: uuid.UUID
     nombre: str
     síntomas: List[str] = ([
