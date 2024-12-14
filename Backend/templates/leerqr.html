@@ -13,10 +13,14 @@
 const urlParams = new URLSearchParams(window.location.search);
 const destino = urlParams.get('destino');
 function cargarPaginaDestino(idPaciente) {
+  idParsed = parseInt(idPaciente);
+  if (isNaN(idParsed)) {
+    idParsed = 1;
+  }
   if (destino === 'especialista') {
-    window.location.href = `/especialista/${idPaciente}`;
+    window.location.href = `/especialista/${idParsed}`;
   } else if (destino === 'urgencia') {
-    window.location.href = `/urgencia/${idPaciente}`;
+    window.location.href = `/urgencia/${idParsed}`;
   }
 }
 
