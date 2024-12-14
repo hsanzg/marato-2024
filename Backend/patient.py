@@ -57,9 +57,7 @@ class Patient:
       'Calci + Vitamina D 500mg/400 UI 2comp/d v.o.': False,
       'Tinzaparina 20000UI/0,5-0,9 mL (segons Kg pes)': False
     }
-    self.urgencias = [
-      Visita()
-    ]
+    self.urgencias = []
     self.pruebas = []
     self.AgudMPID = {
             "Virus": False,
