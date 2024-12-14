@@ -58,11 +58,10 @@ async def guardar_paciente(req: Request):
     id = form['id']
     pac = cargar_paciente(id)
     print('guardando datos de paciente')
-    for key in form:
-      value = form[key] == 'on'
-      if key in pac.sintomas:
-        print(f'{key} -> {value}')
-        pac.sintomas[key] = value
+    for sin_name in pac.sintomas.keys():
+      new_val = sin_name in form
+      pac.sintomas[sin_name] = new_val
+      print(f'{sin_name} -> {new_val}')
   print('redirigiendo a QR de paciente')
   return RedirectResponse(f'verqr?id={id}', status_code=303) # POST->GET
 
