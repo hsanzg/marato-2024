@@ -1,0 +1,9 @@
+html,
+body {
+  height: 100%;
+}
+
+.formulario {
+  max-width: 500px;
+  padding: 1rem;
+}

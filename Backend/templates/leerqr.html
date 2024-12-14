@@ -1,16 +1,22 @@
-Página de escaneo de QR. Una vez leído, redirige a página especialista o urgencia.
-
-<div id="reader"></div>
-
+{% include 'header.html' %}
+<!--Página de escaneo de QR. Una vez leído, redirige a página especialista o urgencia.-->
+<link rel="stylesheet" href="/static/lector-qr.css">
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+<main class="formulario w-100 m-auto">
+  <h1 class="h3 mb-3 fw-normal text-center">Lectura QR</h1>
+  <div class="form-floating">
+    <div id="reader"></div>
+  </div>
+</main>
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 const destino = urlParams.get('destino');
 function cargarPaginaDestino(idPaciente) {
   if (destino === 'especialista') {
-    window.location.href = `especialista.html?id=${idPaciente}`;
+    window.location.href = `/especialista?id=${idPaciente}`;
   } else if (destino === 'urgencia') {
-    window.location.href = `urgencia.html?id=${idPaciente}`;
+    window.location.href = `/urgencia?id=${idPaciente}`;
   }
 }
 
@@ -32,3 +38,4 @@ let html5QrcodeScanner = new Html5QrcodeScanner(
   /* verbose= */ false);
 html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 </script>
+{% include 'footer.html' %}

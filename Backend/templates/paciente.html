@@ -1,0 +1,68 @@
+{% include 'header_con_todo.html' %}
+Formulario de paciente va aquí.
+
+<div class="form-container">
+    <div class="form-header">
+      <h1>Register</h1>
+    </div>
+    <form class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        <div class="invalid-feedback">
+          Please enter your name.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        <div class="invalid-feedback">
+          Please enter a valid email.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        <div class="invalid-feedback">
+          Please enter a password.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="confirm-password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+        <div class="invalid-feedback">
+          Passwords must match.
+        </div>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<form action="/guardar_paciente" method="POST">
+  <input type="hidden" id="idpac" name="id" value="1">
+  <input type="hidden" name="nombre" value="Hola!">
+  <button type="submit">Actualizar</button>
+</form>
+
+Una vez actualizado, vamos a página con QR.
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id') || '1';
+
+idpac.setAttribute('value', id);
+
+console.log(`cargando datos para ${id}`);
+fetch(`/datos_paciente/${id}`, {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+})
+ .then(res => res.json())
+ .then(res => console.log(JSON.stringify(res)));
+</script>
+{% include 'footer.html' %}

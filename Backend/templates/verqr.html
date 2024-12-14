@@ -1,6 +1,14 @@
-Esta página enseña el QR del paciente.
+{% include 'header.html' %}
+<!--Esta página enseña el QR del paciente.-->
 
-<div id="codigoqr"></div>
+<link rel="stylesheet" href="/static/lector-qr.css">
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+<main class="formulario w-100 m-auto">
+  <h1 class="h3 mb-3 fw-normal text-center">Código QR</h1>
+  <div class="form-floating">
+    <div id="codigoqr"></div>
+  </div>
+</main>
 
 <script src="https://unpkg.com/qrcode-js-package@1.0.4/qrcode.min.js" type="text/javascript"></script>
 <script>
@@ -15,3 +23,4 @@ var qrcode = new QRCode("codigoqr", {
   correctLevel : QRCode.CorrectLevel.H
 });
 </script>
+{% include 'footer.html' %}
