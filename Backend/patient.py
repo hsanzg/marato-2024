@@ -10,9 +10,9 @@ class Visita:
     self.fecha = datetime.now()
 
 class Patient:
-  def __init__(self, id):
-    self.id = 1
-    self.nombre = 'Juan García López'
+  def __init__(self, id, nombre):
+    self.id = id
+    self.nombre = nombre
     self.sintomas = {
       # Información introducida por el médico de urgéncia y/o el paciente.
       'increment_o_aparcio_ofeg': False,
@@ -116,8 +116,16 @@ class Patient:
                 self.síntomas.append(sintoma)
 
 
-unico_paciente = Patient(1)
+pacientes = [
+  Patient(0, 'Juan García López'),
+  Patient(1, 'Ana María Gómez Paiporta'),
+  Patient(2, 'Andreu Serra Marroig')
+]
 
 def cargar_paciente(id: int) -> Patient:
   print(f'cargando info de paciente {id}')
-  return unico_paciente
+  try:
+    return pacientes[id]
+  except IndexError:
+    print(f'-> no existe, devolviendo primero')
+    return pacientes[0]

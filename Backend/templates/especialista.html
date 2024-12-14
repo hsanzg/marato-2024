@@ -15,12 +15,19 @@
     <a href="#" class="card-link">Añadir</a>
   </div>
 </div>
-<div class="card tarjeta">
+<div class="mt-4 card tarjeta">
   <div class="card-body">
     <h3 class="card-title">Últimas visitas a urgencias</h3>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{trat}}</li>
+    {% for visita in pac.urgencias %}
+      <li class="list-group-item flex">
+
+        <span><strong>Fecha:</strong> {{visita.fecha}}</span>
+        <span></span>
+        <span></span>
+      </li>
+    {% endfor %}
   </ul>
 </div>
 {% include 'footer.html' %}
