@@ -62,7 +62,7 @@ async def guardar_sintomas(req: Request, dest: str = '', correr_algo: bool = Fal
       new_val = sin_name in form
       pac.sintomas[sin_name] = new_val
       print(f'{sin_name} -> {new_val}')
-    print(f'actualizando otros a {form['altres']}')
+    print(f'actualizando otros a {form["altres"]}')
     pac.altres_sint = form['altres']
     if correr_algo:
       diagnostico = form['diagnostico']
