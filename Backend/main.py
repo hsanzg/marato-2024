@@ -98,3 +98,14 @@ def paciente(req: Request, pac_id: int):
     name='urgencia.html',
     context={'request': req, 'pac': pac}
   )
+
+#Algoritmo
+'''
+def Algoritmo(Patient paciente):
+    if paciente.visita.diagnostico == "Concreto pero no pneumonia":
+        #do nothing
+    if paciente.visita.diagnostico == "Pneumonia":
+         if paciente.visita.condition == "Immunosuprimit":
+             if paciente.AgudMPID["Virus"] == True:
+                 paciente.tratamientos["Piperacilina"] =
+'''
