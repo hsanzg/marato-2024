@@ -139,7 +139,8 @@ pacientes = [
 def cargar_paciente(id: int) -> Patient:
   print(f'cargando info de paciente {id}')
   try:
-    return pacientes[id]
-  except IndexError:
+    act_id = int(id)
+    return pacientes[act_id]
+  except (ValueError, IndexError):
     print(f'-> no existe, devolviendo primero')
     return pacientes[0]
