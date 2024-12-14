@@ -26,11 +26,11 @@ Información introducida por médico de cabecera/especialista:
 Información introducida por paciente y médico de urgencia:
 1. Increment o aparició d’ofeg i/o tos en els darrers dies (maxim darreres 2
 setmanes), sense altres símptomes o amb altres símptomes:
-Increment mucositat i congestió nasal
-Increment mucositat i dolor gola
-Increment mucositat i febre
-Dolor toràcic
-Xiulets
+  - Increment mucositat i congestió nasal
+  - Increment mucositat i dolor gola
+  - Increment mucositat i febre
+  - Dolor toràcic
+  - Xiulets
 2. Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola
 3. Dolor toràcic e. increment d’ofec sense tos ni altres símptomes
 
