@@ -1,1 +1,15 @@
 Esta página enseña el QR del paciente.
+
+<div id="codigoqr"></div>
+
+<script src="https://unpkg.com/qrcode-js-package@1.0.4/qrcode.min.js" type="text/javascript"></script>
+<script>
+var qrcode = new QRCode("codigoqr", {
+  text: 'Hola',
+  width: 128,
+  height: 128,
+  colorDark : "#000000",
+  colorLight : "#ffffff",
+  correctLevel : QRCode.CorrectLevel.H
+});
+</script>

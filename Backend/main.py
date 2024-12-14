@@ -11,8 +11,7 @@ def guardar_paciente(id: Annotated[str, Form()],
   print('guardando datos de paciente')
   print('generando valor QR de paciente')
   #return {'id': id, 'nombre': nombre}
-  return RedirectResponse('verqr.html')
-
+  return RedirectResponse(f'verqr.html?id={id}')
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
