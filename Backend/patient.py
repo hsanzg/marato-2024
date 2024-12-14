@@ -19,11 +19,13 @@ class Visita:
     # A rellenar por el algoritmo.
     self.tratamientos_dados = []
     self.tratamientos_algo = []
+    self.bronco = True
 
 class Patient:
   def __init__(self, id, nombre):
     self.id = id
     self.nombre = nombre
+    self.immunodeprimit == 0;
     self.sintomas = {
       # Información introducida por el médico de urgéncia y/o el paciente.
       'increment_o_aparcio_ofeg': False,
