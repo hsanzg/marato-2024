@@ -6,6 +6,10 @@ TRATAMIENTOS_DISPONIBLES = [
   'piperacilina_tazobactam', 'cefalosporina', 'levofloxacino', 'oseltamivir', 'ganciclovir', 'sulfametoxazol_trimetoprim', 'ac_folic', 'omeprazol', 'n_acetilcisteina', 'morfina', 'bemiparina', 'metilprednisolona', 'losartan', 'calci_vitamina_d', 'tinzaparina'
 ]
 
+NOMBRES_TRATS = {
+  #'piperacilina_tazobactam', 'cefalosporina', 'levofloxacino', 'oseltamivir', 'ganciclovir', 'sulfametoxazol_trimetoprim', 'ac_folic', 'omeprazol', 'n_acetilcisteina', 'morfina', 'bemiparina', 'metilprednisolona', 'losartan', 'calci_vitamina_d', 'tinzaparina'
+}
+
 # Tipos de diagnóstico:
 # - concret_pneumo
 # - concret_no_pneumo
