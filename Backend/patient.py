@@ -49,6 +49,7 @@ class Patient:
     def añadir_sintomas_graves(self, sintomas_graves: [str]):
         """
         Añade una lista de síntomas graves al atributo 'síntomas' del paciente.
+        Esta función es llamada por el médico de urgencia solamente.
         """
         sintomas_a_agregar = [
             "Febre",
@@ -66,6 +67,7 @@ class Patient:
     def añadir_sintomas_generales(self, sintomas_generales: [str]):
         """
         Añade una lista de síntomas generales al atributo 'síntomas' del paciente.
+        Esta función es llamada por el médico especialista o por el paciente
         """
         sintomas_a_agregar = [
             "Increment o aparició d’ofeg i/o tos en els darrers dies (maxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
