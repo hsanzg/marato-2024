@@ -10,7 +10,7 @@ class Patient:
     self.sintomas = {
       # Información introducida por el médico de urgéncia y/o el paciente.
       'increment_o_aparcio_ofeg': False,
-      'tos_en_els_darrers_dies': False,
+      'tos_en_els_darrers_dies': True,
       'increment_mucositat': False,
       'congestio_nasal': False,
       'dolor_gola': False,
