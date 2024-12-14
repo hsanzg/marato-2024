@@ -77,10 +77,10 @@ class Patient:
             "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)": False
         }
 
-    def crear_visita(diagnostico: str) -> int:
-      new_ix = len(self.urgencias)
-      self.urgencias.append(Visita(diagnostico))
-      return new_ix
+  def crear_visita(self, diagnostico: str) -> int:
+    new_ix = len(self.urgencias)
+    self.urgencias.append(Visita(diagnostico))
+    return new_ix
 
 
 pacientes = [
@@ -90,7 +90,7 @@ pacientes = [
 ]
 
 
-def cargar_paciente(id: int) -> Patient:
+def cargar_paciente(id: str | int) -> Patient:
   print(f'cargando info de paciente {id}')
   try:
     act_id = int(id)

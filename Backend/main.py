@@ -105,12 +105,17 @@ def paciente(req: Request, pac_id: int):
 
 
 @app.get('/resultado/{pac_id}/{res_id}', response_class=HTMLResponse)
-def paciente(req: Request, pac_id: int, res_id: int):
-  pac = cargar_paciente(id)
-  return templates.TemplateResponse(
-    name='paciente.html',
-    context={'request': req, 'pac': pac}
-  )
+def resultado(req: Request, pac_id: int, res_id: int):
+  pac = cargar_paciente(pac_id)
+  try:
+    res = pac.urgencias[res_id]
+    return templates.TemplateResponse(
+      name='resultado.html',
+      context={'request': req, 'pac': pac, 'res': res}
+    )
+  except IndexError:
+    return RedirectResponse(f'/urgencia/{pac_id}', status_code=303) # POST->GET
+
 
 #Algoritmo
 
