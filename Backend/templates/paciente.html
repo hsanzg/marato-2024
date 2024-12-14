@@ -1,6 +1,6 @@
 {% include 'header_con_todo.html' %}
 <!--Formulario de paciente va aquí.-->
-<form action="/guardar_sintomas" method="POST">
+<form action="/guardar_sintomas?dest=/paciente/{{pac.id}}" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
 
   {% set sin_todos = False %}

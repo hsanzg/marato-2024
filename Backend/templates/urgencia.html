@@ -1,6 +1,6 @@
 {% include 'header_con_todo.html' %}
 
-<form action="/guardar_sintomas" method="POST">
+<form action="/guardar_sintomas?dest=/urgencia/{{pac.id}}" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
   {% set sin_todos = True %}
   {% include 'form_sintomas.html' %}
