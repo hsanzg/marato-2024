@@ -2,7 +2,69 @@
 <!--Formulario de paciente va aquí.-->
 <form action="/guardar_paciente" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
-  {% include 'form_sintomas.html' %}
+  <div class="form-header">
+    <h1>Formulari de Símptomes</h1>
+  <div>
+  <h3>¿Quins d'aquests síntomes presentes?</h3>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Increment o aparició d’ofeg
+    </label>
+  </div>
+	<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Tos en els darrers dies (màxim darreres 2 setmanes)
+    </label>
+	</div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Increment mucositat i congestió nasal
+    </label>
+	</div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Congestió nasal
+    </label>
+	</div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Dolor gola
+    </label>
+	</div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Febre
+    </label>
+	</div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Dolor toràcic
+    </label>
+	</div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Xiulets
+    </label>
+	</div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+        Mal estat general
+    </label>
+	</div>
+  <div class="form-floating mb-3">
+    <input type="string" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Altres símptomes</label>
+  </div>
+  <button type="submit">Enviar</button>
   <hr class="my-4">
   <button class="w-100 btn btn-primary btn-lg" type="submit">Guardar</button>
 </form>
@@ -12,7 +74,8 @@
   <input type="hidden" name="nombre" value="Hola!">
   <button type="submit">Actualizar</button>
 </form>-->
-<!--Una vez actualizado, vamos a página con QR.-->
+
+Una vez actualizado, vamos a página con QR.
 
 <script>
 const urlParams = new URLSearchParams(window.location.search);
