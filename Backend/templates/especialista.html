@@ -1,5 +1,26 @@
 {% include 'header_con_todo.html' %}
-Página médico especialista.
-
-Aquí va lector QR que redirige a formulario del paciente.
+<!-- Página médico especialista. -->
+<div class="card tarjeta">
+  <div class="card-body">
+    <h3 class="card-title">Tratamientos</h3>
+  </div>
+  <ul class="list-group list-group-flush">
+    {% for trat, valor in pac.tratamientos.items() %}
+      {% if valor %}
+        <li class="list-group-item">{{trat}}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Añadir</a>
+  </div>
+</div>
+<div class="card tarjeta">
+  <div class="card-body">
+    <h3 class="card-title">Últimas visitas a urgencias</h3>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{trat}}</li>
+  </ul>
+</div>
 {% include 'footer.html' %}
