@@ -7,26 +7,26 @@ class Patient:
   def __init__(self, id):
     self.id = 1
     self.nombre = 'Juan García López'
-    self.síntomas: ([
-      #Información introducida por el médico de urgéncia y/o el paciente
-      "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
-      "Increment mucositat i congestió nasal",
-      "Increment mucositat i dolor gola",
-      "Increment mucositat i febre",
-      "Dolor toràcic",
-      "Xiulets",
-      "Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola",
-      "Dolor toràcic e increment d’ofec sense tos ni altres símptomes",
-
+    self.sintomas = {
+      # Información introducida por el médico de urgéncia y/o el paciente.
+      'increment_o_aparcio_ofeg': False,
+      'tos_en_els_darrers_dies': False,
+      'increment_mucositat': False,
+      'congestio_nasal': False,
+      'dolor_gola': False,
+      'febre': False,
+      'dolor_toracic': False,
+      'xiulets': False,
+      'mal_estat_general': False,
+      'altres_simptomes': False,
       # Información introducïda por el médico de urgéncia
-      "Febre",
-      "Desaturació",
-      "Increment respiracions per minut o respiracions per minut > 19",
-      "Tiratge muscular per respirar",
-      "Ofeg en repòs",
-      "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
-      "To blau distal als dits o llavis"
-    ])
+      "desaturacio": False,
+      "increment_respiracions": False, #  per minut o respiracions per minut > 19
+      "tiratge_muscular_per_respirar": False,
+      "ofeg_en_repos": False,
+      "auscultacio_de_xiulets": False, #  (sibilants) o altres sorolls diferents als que té el pacient de base
+      "to_blau_distal": False # als dits o llavis
+    }
     self.tratamientos_si = []
     self.tratamientos_no = []
     registro_tratamientos: Dict[datetime, str] = field(default_factory=dict)  # Tratamientos recibidos
