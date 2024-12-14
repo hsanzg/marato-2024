@@ -1,6 +1,6 @@
 {% include 'header_con_todo.html' %}
 <!-- Página médico especialista. -->
-<div class="card tarjeta">
+<div class="shadow p-3 mb-5 card tarjeta">
   <div class="card-body">
     <h3 class="card-title">Tratamientos</h3>
   </div>
@@ -15,7 +15,7 @@
     <a href="#" class="card-link">Añadir</a>
   </div>
 </div>
-<div class="mt-4 card tarjeta">
+<div class="shadow p-3 mb-5 mt-4 card tarjeta">
   <div class="card-body">
     <h3 class="card-title">Últimas visitas a urgencias</h3>
   </div>
@@ -34,7 +34,7 @@
 
 <form action="/guardar_malalties?dest=/especialista/{{pac.id}}" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
-<div class="my-4 card tarjeta">
+<div class="shadow p-3 my-4 card tarjeta">
   <div class="card-body">
     <div class="form-header">
       <h3 class="card-title">Causes d’agudització</h3>

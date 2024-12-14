@@ -17,9 +17,9 @@ class Visita:
     self.tratamientos_algo = []
 
 class Patient:
-  def __init__(self, id, nombre):
-    self.id = id
-    self.nombre = nombre
+  def __init__(self, id):
+    self.id = 1
+    self.nombre = 'Juan García López'
     self.sintomas = {
       # Información introducida por el médico de urgéncia y/o el paciente.
       'increment_o_aparcio_ofeg': False,
@@ -61,51 +61,36 @@ class Patient:
       Visita()
     ]
     self.pruebas = []
-    self.agudMPID = {
-      'insuficiencia_cardiaca_esquerra': False,
-      'tromboembolisme_pulmonar': False,
-      'farmacs': False,
-      'transfusio_de_sang': False,
-      'inhalacio_aguda_toxics_pulmonars': False,
-      'reflux_gastroesofagic': False,
-      'causes_abdomen_agut': False,
-      'intervencions_quirurgiques_prèvies': False,
-      'procediments_invasius_prèvies': False,
-      'pneumotorax': False,
-      'contusio_pulmonar': False,
-      'exacerbacio_aguda': False
-    }
-    # self.malalties = (
-    #   ["Infeccions", [
-    #       "Virus",
-    #       "Fongs",
-    #       "Bacteris",
-    #       "Oportunistes (CMV, Pneumocystis jirovecii, micobacteris tuberculoses i atípics)"
-    #   ],
-    #   "Insuficiència cardíaca esquerra",
-    #   "Tromboembolisme pulmonar (inclosa embòlia grassa)",
-    #   "Fàrmacs",
-    #   "Transfusió de sang",
-    #   "Inhalació aguda de tòxics pulmonars",
-    #   "Reflux gastroesofàgic (RGE)",
-    #   "Causes d’abdomen agut (pancreatitis, apendicitis, peritonitis, etc.)",
-    #   "Intervencions quirúrgiques en les setmanes prèvies",
-    #   "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies",
-    #   "Pneumotòrax",
-    #   "Contusió pulmonar",
-    #   "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
-    # )
+    self.AgudMPID = {
+            "Virus": False,
+            "CMV": False,
+            "Pneumocystis jirovecii": False,
+            "Insuficiència cardíaca esquerra": False,
+            "Tromboembolisme pulmonar (inclosa embòlia grassa)": False,
+            "Fàrmacs": False,
+            "Transfusió de sang": False,
+            "Inhalació aguda de tòxics pulmonars": False,
+            "Reflux gastroesofàgic (RGE)": False,
+            "Causes d’abdomen agut (pancreatitis, apendicitis, peritonitis, etc.)": False,
+            "Intervencions quirúrgiques en les setmanes prèvies": False,
+            "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies": False,
+            "Pneumotòrax": False,
+            "Contusió pulmonar": False,
+            "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)": False
+        }
 
     def crear_visita(diagnostico: str) -> int:
       new_ix = len(self.urgencias)
       self.urgencias.append(Visita(diagnostico))
       return new_ix
 
+
 pacientes = [
   Patient(0, 'Juan García López'),
   Patient(1, 'Ana María Gómez Paiporta'),
   Patient(2, 'Andreu Serra Marroig')
 ]
+
 
 def cargar_paciente(id: int) -> Patient:
   print(f'cargando info de paciente {id}')
