@@ -1,3 +1,4 @@
+{% set title_pag = pac.nombre %}
 {% include 'header_con_todo.html' %}
 <!--Formulario de paciente va aquí.-->
 <form action="/guardar_sintomas?dest=/paciente/{{pac.id}}" method="POST">
@@ -8,6 +9,7 @@
 
   <hr class="my-4">
   <button class="w-100 btn btn-primary" type="submit">Guardar</button>
+  <a class="w-100 mt-1 btn btn-outline-primary" href="/verqr?id={{pac.id}}">Ver mi código QR</a>
   </div></div>
 </form>
 <!--Una vez actualizado, vamos a página con QR.-->

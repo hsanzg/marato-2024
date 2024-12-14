@@ -1,3 +1,4 @@
+{% set title_pag = 'Resultado' %}
 {% include 'header_con_todo.html' %}
 <style>
   .detalle {
@@ -6,7 +7,11 @@
 </style>
 
 <!--Enseñar resultados algoritmo, registro resultados y checkbox de tratamientos suministrados.-->
-
+{% if res.bronco %}
+<div class="alert alert-danger" role="alert">
+  A simple danger alert—check it out!
+</div>
+{% endif %}
 
 <form action="/guardar_trats?dest=/especialista/{{pac.id}}" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">

@@ -1,3 +1,4 @@
+{% set title_pag = nombrePac %}
 {% include 'header.html' %}
 <!--Esta página enseña el QR del paciente.-->
 
@@ -12,6 +13,12 @@
   <h1 class="h3 mb-3 fw-normal text-center">{{nombrePac}}</h1>
   <div class="form-floating">
     <div class="text-center" id="codigoqr"></div>
+    <p style="margin-top: 3rem;">Este código QR contiene información importante que puede ser necesaria para tu atención médica. Enséñalo al médico de cabecera o al personal de urgencias cuando sea necesario.</p>
+    <h5 class="mt-4">Instrucciones</h5>
+    <ol>
+      <li>Guarda este QR en tu dispositivo o imprímelo si prefieres llevarlo contigo.</li>
+      <li>Muéstralo al personal sanitario para que puedan acceder a la información de manera rápida y segura.</li>
+    </ol>
   </div>
 </main>
 
