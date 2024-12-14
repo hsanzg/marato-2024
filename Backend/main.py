@@ -84,6 +84,8 @@ async def guardar_malalties(req: Request, dest: str):
       new_val = sin_name in form
       pac.AgudMPID[sin_name] = new_val
       print(f'{sin_name} -> {new_val}')
+    pac.immunodeprimit = 'immunodeprimit' in form
+    pac.fumador = 'fumador' in form
   print(f'redirigiendo a {dest}')
   return RedirectResponse(dest, status_code=303) # POST->GET
 

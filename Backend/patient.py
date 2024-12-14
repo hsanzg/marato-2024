@@ -64,6 +64,7 @@ class Patient:
     self.tratamientos = {trat_id: False for trat_id in NOMBRES_TRATS.keys()}
     self.urgencias = []
     self.pruebas = []
+    self.fumador = False
     self.MPID = False
     self.AgudMPID = {
       'virus': False,

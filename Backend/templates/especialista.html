@@ -40,14 +40,36 @@
 
 <form action="/guardar_malalties?dest=/especialista/{{pac.id}}" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
+<!--inmuno deprimido, fumador-->
+<div class="shadow p-3 my-4 card tarjeta">
+  <div class="card-body">
+    <div class="form-header">
+      <h3 class="card-title">Factores de riesgo</h3>
+    </div>
+    <div class="row mx-1">
+      <div class="form-check col-md-6">
+        <input class="form-check-input" type="checkbox" id="immuno" name="immunodeprimit" {% if pac.immunodeprimit %}checked{% endif %}>
+        <label class="form-check-label" for="immuno">
+          Inmunodeprimit
+        </label>
+      </div>
+      <div class="form-check col-md-6">
+        <input class="form-check-input" type="checkbox" id="fumador" name="fumador" {% if pac.fumador %}checked{% endif %}>
+        <label class="form-check-label" for="fumador">
+          Fumador
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="shadow p-3 my-4 card tarjeta">
   <div class="card-body">
     <div class="form-header">
       <h3 class="card-title">Causes d’agudització</h3>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" name="virus" {% if pac.AgudMPID['virus'] %}checked{% endif %}>
-      <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="virus" id="virus" {% if pac.AgudMPID['virus'] %}checked{% endif %}>
+      <label class="form-check-label" for="virus">
         Infecció viral
       </label>
     </div>
@@ -140,7 +162,6 @@
   </div>
 </div>
 </form>
-
 
 
 
