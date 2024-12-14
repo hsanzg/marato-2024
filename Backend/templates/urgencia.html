@@ -1,7 +1,13 @@
 {% include 'header_con_todo.html' %}
-Introducir síntomas, enseñar resultados algoritmo, registro resultados y checkbox de tratamientos suministrados.
 
-{% include 'form_sintomas.html' %}
+<form action="/guardar_paciente" method="POST">
+  <input type="hidden" name="id" value="{{ pac.id }}">
+  {% set sin_todos = True %}
+  {% include 'form_sintomas.html' %}
+  <hr class="my-4">
+  <button class="w-100 btn btn-primary" type="submit">Guardar</button>
+</form>
+
 
 <script>
 const urlParams = new URLSearchParams(window.location.search);

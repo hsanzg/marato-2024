@@ -14,9 +14,9 @@ const urlParams = new URLSearchParams(window.location.search);
 const destino = urlParams.get('destino');
 function cargarPaginaDestino(idPaciente) {
   if (destino === 'especialista') {
-    window.location.href = `/especialista?id=${idPaciente}`;
+    window.location.href = `/especialista/${idPaciente}`;
   } else if (destino === 'urgencia') {
-    window.location.href = `/urgencia?id=${idPaciente}`;
+    window.location.href = `/urgencia/${idPaciente}`;
   }
 }
 

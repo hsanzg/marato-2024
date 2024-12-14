@@ -2,6 +2,7 @@
 <!--Formulario de paciente va aquí.-->
 <form action="/guardar_paciente" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
+  {% set sin_todos = False %}
   {% include 'form_sintomas.html' %}
   <hr class="my-4">
   <button class="w-100 btn btn-primary" type="submit">Guardar</button>
