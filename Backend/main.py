@@ -9,7 +9,7 @@ app = FastAPI()
 def guardar_paciente(id: Annotated[str, Form()],
                      nombre: Annotated[str, Form()]):
   print('guardando datos de paciente')
-  print('generando valor QR de paciente')
+  print('redirigiendo a QR de paciente')
   #return {'id': id, 'nombre': nombre}
   return RedirectResponse(f'verqr.html?id={id}')
 
