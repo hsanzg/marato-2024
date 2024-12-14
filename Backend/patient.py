@@ -34,6 +34,7 @@ class Visita:
     self.tratamientos_dados = []
     self.tratamientos_algo = []
     self.bronco = True
+    slef.mensaje = str
 
 class Patient:
   def __init__(self, id, nombre):
