@@ -27,8 +27,23 @@ class Patient:
       "auscultacio_de_xiulets": False, #  (sibilants) o altres sorolls diferents als que té el pacient de base
       "to_blau_distal": False # als dits o llavis
     }
-    self.tratamientos_si = []
-    self.tratamientos_no = []
+    self.tratamientos = {
+     'Piperacilina/Tazobactam 4g/0,5g cada 8h e.v.': False,
+    'Cefalosporina 3ª generació': False,
+    'Levofloxacino 500mg/24h v.o.': False,
+    'Oseltamivir 75mg/12h v.o.': False,
+    'Ganciclovir 5mg/Kg pes/12h e.v.': False,
+    'Sulfametoxazol/trimetoprim 800/160 mg/12h v.o.': False,
+    'Àc. Fòlic': False,
+    'Omeprazol 20mg/12-24h e.v.': False,
+    'N-acetilcisteïna 600mg/8h v.o.': False,
+    'Morfina 2,5-5mg s.c.': False,
+    'Bemiparina 2500-3500 UI/0,2 mL (segons Kg pes) s.c./dia': False,
+    'Metilprednisolona 1-2 mg/Kg pes/d e.v.': False,
+    'Losartan 50mg/24h v.o.': False,
+    'Calci + Vitamina D 500mg/400 UI 2comp/d v.o.': False,
+    'Tinzaparina 20000UI/0,5-0,9 mL (segons Kg pes)': False
+    }
     registro_tratamientos: Dict[datetime, str] = field(default_factory=dict)  # Tratamientos recibidos
     registro_salida_algoritmo: Dict[datetime, Tuple[List[str], List[str]]] = {} # Salidas algoritmo
     self.pruebas = []
