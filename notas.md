@@ -29,3 +29,25 @@ Información introducida por médico de cabecera/especialista:
 Herramientas posibles para crear la página web:
 
 - HTML + CSS + JavaScript
+
+
+
+Flujo de la Aplicación:
+(Usted es...)
+- Paciente
+- Médico especialista
+- Médico de urgencia
+
+  Si Paciente:
+  Introducir información disponible por el paciente en el formulario. -> QR generado/actualizado.
+
+  Si médico especialista:
+  Introducir información disponible por el médico especialista en el formulario. -> QR generado/actualizado.
+
+  Si médico de urgencia:
+
+  Escanear QR -> Introducir síntomas -> Obtención de resultado/s del algoritmo -> Registro de resultados y checkbox del tratamiento/s subministrado/s.
+
+  
+
+  
