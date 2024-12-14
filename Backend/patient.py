@@ -2,7 +2,7 @@ class Patient:
   def __init__(self, id):
     self.id = 1
     self.nombre = 'Juan García López'
-    self.síntomas: ([
+    self.sintomas: ([
       #Información introducida por el médico de urgéncia y/o el paciente
       "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
       "Increment mucositat i congestió nasal",
@@ -62,7 +62,18 @@ class Patient:
     "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
     "To blau distal als dits o llavis"
 ])
-    self.pruebas = []
+    self.pruebas = ([
+    "Analítica urgent (bioquímica, hemograma, coagulació)",
+    "Gasometria arterial (PaO2/FIO2)",
+    "ECG",
+    "Rx tòrax",
+    "Microbiologia: Esput (gram i cultiu convencional, fongs/micobacteris)",
+    "Antigenúria (pneumococ/legionella)",
+    "Hemocultius",
+    "PCR virus Influenza A i B (si sospita grip)",
+    "ANGIO-TACAR + D-Dímer (si sospita TEP)",
+    "Valoració parènquima pulmonar"
+])
     self.malalties = (
       ["Infeccions", [
           "Virus",
@@ -81,8 +92,8 @@ class Patient:
       "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies",
       "Pneumotòrax",
       "Contusió pulmonar",
-      "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
-    )
+      "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"
+])
 
     def introducir_sintomas_graves(self, sintomas_graves: [str]):
         """
