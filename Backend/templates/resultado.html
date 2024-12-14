@@ -1,4 +1,24 @@
 {% include 'header_con_todo.html' %}
 Enseñar resultados algoritmo, registro resultados y checkbox de tratamientos suministrados.
 
+<form action="/guardar_trats?dest=/especialista/{{pac.id}}" method="POST">
+  <input type="hidden" name="id" value="{{ pac.id }}">
+<div class="shadow p-3 my-4 card tarjeta">
+  <div class="card-body">
+    <div class="form-header">
+      <h3 class="card-title">Tratamientos suministrados</h3>
+      <p>Marque los medicamentos asignados, y desactive los que considere incorrectos.</p>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="insuficiencia_cardiaca_esquerra" {% if pac.AgudMPID['insuficiencia_cardiaca_esquerra'] %}checked{% endif %}>
+      <label class="form-check-label">
+        Insuficiència cardíaca esquerra
+      </label>
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary" type="submit">Guardar</button>
+  </div>
+</div>
+</form>
+
 {% include 'footer_con_todo.html' %}

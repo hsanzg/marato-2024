@@ -2,6 +2,10 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from typing import List, Dict
 
+TRATAMIENTOS_DISPONIBLES = [
+  'piperacilina_tazobactam', 'cefalosporina', 'levofloxacino', 'oseltamivir', 'ganciclovir', 'sulfametoxazol_trimetoprim', 'ac_folic', 'omeprazol', 'n_acetilcisteina', 'morfina', 'bemiparina', 'metilprednisolona', 'losartan', 'calci_vitamina_d', 'tinzaparina'
+]
+
 # Tipos de diagnóstico:
 # - concret_pneumo
 # - concret_no_pneumo
@@ -40,23 +44,7 @@ class Patient:
       "auscultacio_de_xiulets": False, #  (sibilants) o altres sorolls diferents als que té el pacient de base
       "to_blau_distal": False # als dits o llavis
     }
-    self.tratamientos = {
-      'Piperacilina/Tazobactam 4g/0,5g cada 8h e.v.': False,
-      'Cefalosporina 3ª generació': False,
-      'Levofloxacino 500mg/24h v.o.': True,
-      'Oseltamivir 75mg/12h v.o.': False,
-      'Ganciclovir 5mg/Kg pes/12h e.v.': True,
-      'Sulfametoxazol/trimetoprim 800/160 mg/12h v.o.': False,
-      'Àc. Fòlic': False,
-      'Omeprazol 20mg/12-24h e.v.': False,
-      'N-acetilcisteïna 600mg/8h v.o.': False,
-      'Morfina 2,5-5mg s.c.': False,
-      'Bemiparina 2500-3500 UI/0,2 mL (segons Kg pes) s.c./dia': False,
-      'Metilprednisolona 1-2 mg/Kg pes/d e.v.': False,
-      'Losartan 50mg/24h v.o.': False,
-      'Calci + Vitamina D 500mg/400 UI 2comp/d v.o.': False,
-      'Tinzaparina 20000UI/0,5-0,9 mL (segons Kg pes)': False
-    }
+    self.tratamientos = {nom: False for nom in TRATAMIENTOS_DISPONIBLES}
     self.urgencias = []
     self.pruebas = []
     self.AgudMPID = {
