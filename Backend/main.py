@@ -68,3 +68,13 @@ def paciente(req: Request, pac_id: int):
     name='especialista.html',
     context={'request': req, 'pac': pac}
   )
+
+# Páginas urgencia.
+
+@app.get('/urgencia/{pac_id}', response_class=HTMLResponse)
+def paciente(req: Request, pac_id: int):
+  pac = cargar_paciente(pac_id)
+  return templates.TemplateResponse(
+    name='urgencia.html',
+    context={'request': req, 'pac': pac}
+  )

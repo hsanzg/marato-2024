@@ -1,59 +1,17 @@
 {% include 'header_con_todo.html' %}
-
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa; /* Light gray for a hospital-like background */
-        color: #333; /* Neutral text color */
-        margin: 0;
-        padding: 0;
-    }
-    .menu-container {
-        max-width: 600px;
-        margin: 50px auto; /* Centered on the page */
-        background-color: #ffffff; /* White card-style background */
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        padding: 20px;
-        text-align: center;
-    }
-    .menu-container h1 {
-        color: #0d6efd; /* Cyan blue for medical tone */
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-    .menu-container ul {
-        list-style: none;
-        padding: 0;
-    }
-    .menu-container li {
-        margin: 15px 0;
-    }
-    .menu-container a {
-        text-decoration: none;
-        font-size: 18px;
-        color: #ffffff;
-        background-color: #0d6efd; /* Cyan blue button */
-        padding: 10px 20px;
-        border-radius: 5px;
-        display: inline-block;
-        transition: background-color 0.3s;
-    }
-    .menu-container a:hover {
-        background-color: #0b5ed7; /* Slightly darker cyan blue on hover */
-    }
-    .menu-container a:active {
-        background-color: #084298; /* Darker blue on click */
-    }
+#tarjeta {
+  margin: 0 auto;
+  max-width: 40rem;
+}
 </style>
-
-<div class="menu-container">
-    <h1>Usted es...</h1>
-    <ul>
-        <li><a href="/paciente/1">Paciente</a></li>
-        <li><a href="/leerqr?destino=especialista">Médico especialista</a></li>
-        <li><a href="/leerqr?destino=urgencia">Médico de urgencia</a></li>
-    </ul>
+<div class="card" id="tarjeta">
+  <div class="card-body text-center">
+    <h3 class="card-title">Usted es...</h3>
+    <a href="/paciente/1" class="btn btn-primary py-2">Paciente</a>
+    <a href="/leerqr?destino=especialista" class="btn btn-primary py-2">Médico especialista</a>
+    <a href="/leerqr?destino=urgencia" class="btn btn-primary py-2">Médico de urgencia</a>
+  </div>
 </div>
 
 {% include 'footer_con_todo.html' %}
