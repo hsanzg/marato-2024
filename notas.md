@@ -23,7 +23,7 @@ Información introducida por médico de cabecera/especialista:
 - Contusió pulmonar.
 - Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (descrit en FPI)
 
-Información introducida por paciente y médico de urgencia:
+Información introducida por paciente y/o médico especialista
 1. Increment o aparició d’ofeg i/o tos en els darrers dies (maxim darreres 2
 setmanes), sense altres símptomes o amb altres símptomes:
   - Increment mucositat i congestió nasal
