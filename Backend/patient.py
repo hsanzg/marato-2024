@@ -1,7 +1,7 @@
-class Patient:
-    id: int
+class Pacient:
+    id: uuid.UUID
     nombre: str
-    síntomas: [str] = ([
+    síntomas: List[str] = ([
     #Información introducida por el médico de urgéncia y/o el paciente
     "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
     "Increment mucositat i congestió nasal",
@@ -21,10 +21,10 @@ class Patient:
     "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
     "To blau distal als dits o llavis"
 ])
-    medicaments_si: [str]
-    medicaments_no: [str]
-    pruebas: [str]
-    malalties: [str] = (
+    medicaments_si: List[str]
+    medicaments_no: List[str]
+    pruebas: List[str]
+    malalties: List[str] = (
         ["Infeccions", [
             "Virus",
             "Fongs",
@@ -45,9 +45,11 @@ class Patient:
         "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
     )
 
+
     def añadir_sintomas_graves(self, sintomas_graves: List[str]):
         """
         Añade una lista de síntomas graves al atributo 'síntomas' del paciente.
+        Esta función es llamada por el médico de urgencia solamente.
         """
         sintomas_a_agregar = [
             "Febre",
@@ -65,6 +67,7 @@ class Patient:
     def añadir_sintomas_generales(self, sintomas_generales: List[str]):
         """
         Añade una lista de síntomas generales al atributo 'síntomas' del paciente.
+        Esta función es llamada por el médico especialista o por el paciente
         """
         sintomas_a_agregar = [
             "Increment o aparició d’ofeg i/o tos en els darrers dies (maxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
@@ -81,6 +84,5 @@ class Patient:
                 self.síntomas.append(sintoma)
 
 
-def cargar_paciente(id: int) -> Patient:
-  print(f'cargando info de paciente {id}')
-  return Patient()
+
+
