@@ -60,22 +60,19 @@ class Patient:
     self.urgencias = []
     self.pruebas = []
     self.AgudMPID = {
-            "Virus": False,
-            "CMV": False,
-            "Pneumocystis jirovecii": False,
-            "Insuficiència cardíaca esquerra": False,
-            "Tromboembolisme pulmonar (inclosa embòlia grassa)": False,
-            "Fàrmacs": False,
-            "Transfusió de sang": False,
-            "Inhalació aguda de tòxics pulmonars": False,
-            "Reflux gastroesofàgic (RGE)": False,
-            "Causes d’abdomen agut (pancreatitis, apendicitis, peritonitis, etc.)": False,
-            "Intervencions quirúrgiques en les setmanes prèvies": False,
-            "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies": False,
-            "Pneumotòrax": False,
-            "Contusió pulmonar": False,
-            "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)": False
-        }
+      'insuficiencia_cardiaca_esquerra': False,
+      'tromboembolisme_pulmonar': False,
+      'farmacs': False,
+      'transfusio_de_sang': False,
+      'inhalacio_aguda_toxics_pulmonars': False,
+      'reflux_gastroesofagic': False,
+      'causes_abdomen_agut': False,
+      'intervencions_quirurgiques_prèvies': False,
+      'procediments_invasius_prèvies': False,
+      'pneumotorax': False,
+      'contusio_pulmonar': False,
+      'exacerbacio_aguda':False
+    }
 
   def crear_visita(self, diagnostico: str) -> int:
     new_ix = len(self.urgencias)

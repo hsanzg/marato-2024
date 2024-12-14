@@ -80,8 +80,8 @@ async def guardar_malalties(req: Request, dest: str):
       new_val = sin_name in form
       pac.AgudMPID[sin_name] = new_val
       print(f'{sin_name} -> {new_val}')
-  print('redirigiendo a QR de paciente')
-  return RedirectResponse(f'verqr?id={id}', status_code=303) # POST->GET
+  print(f'redirigiendo a {dest}')
+  return RedirectResponse(dest, status_code=303) # POST->GET
 
 # Páginas especialista.
 

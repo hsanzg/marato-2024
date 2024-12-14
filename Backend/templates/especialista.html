@@ -29,6 +29,11 @@
         </ul>
       </li>
     {% endfor %}
+    {% if not pac.urgencias %}
+    <div class="alert alert-primary" role="alert">
+    El paciente no ha visitado la urgencia en los últimos 5 años.
+    </div>
+    {% endif %}
   </ul>
 </div>
 
