@@ -125,40 +125,40 @@ def Algoritmo(paciente: Patient):
     """
 
     # Verifica si el diagnóstico es concreto o no
-    if paciente.visita[-1].diagnostico == "Concreto pero no pneumonia":
+    if paciente.visita[-1].diagnostico == "concret_no_pneumo":
         #print("El diagnóstico es específico pero no neumonía. No aplica un tratamiento específico.")
         return
 
     # Lógica específica para neumonía
-    if paciente.visita[-1].diagnostico == "Pneumonia":
+    if paciente.visita[-1].diagnostico == "concret_pneumo":
 
         # Verifica el estado inmunológico
         if paciente.immunodeprimit == 1:
-            if paciente.AgudMPID["Virus"]:
+            if paciente.AgudMPID['virus']:
                 # Se detecta Virus Influenza
-                paciente.tratamientos_algo['Piperacilina/Tazobactam 4g/0,5g cada 8h e.v.'] = True
-                paciente.tratamientos_algo['Levofloxacino 500mg/24h v.o.'] = True
-            elif paciente.AgudMPID["CMV"]:
+                paciente.tratamientos_algo['piperacilina_tazobactam'] = True
+                paciente.tratamientos_algo['levofloxacino'] = True
+            if paciente.AgudMPID['cmv']:
                 # Sospecha de Citomegalovirus (CMV)
-                paciente.tratamientos_algo['Ganciclovir 5mg/Kg pes/12h e.v.'] = True
-            elif paciente.AgudMPID["Pneumocystis jirovecii"]:
+                paciente.tratamientos_algo['ganciclovir'] = True
+            if paciente.AgudMPID["pneumocystis jirovecii"]:
                 # Sospecha de Pneumocystis jirovecii
-                paciente.tratamientos_algo['Sulfametoxazol/trimetoprim 800/160 mg/12h v.o.'] = True
-                paciente.tratamientos_algo['Àc. Fòlic'] = True
+                paciente.tratamientos_algo['sulfametoxazol_trimetoprim'] = True
+                paciente.tratamientos_algo['ac_folic'] = True
 
         elif paciente.immunodeprimit == 0:
-            if paciente.AgudMPID["Virus"]:
+            if paciente.AgudMPID['virus']:
                 # Se detecta Virus Influenza
-                paciente.tratamientos_algo['Oseltamivir 75mg/12h v.o.'] = True
+                paciente.tratamientos_algo['oseltamivir'] = True
             else:
                 # Neumonía bacteriana
-                paciente.tratamientos_algo['Cefalosporina 3ª generació'] = True
-                paciente.tratamientos_algo['Levofloxacino 500mg/24h v.o.'] = True
+                paciente.tratamientos_algo['cefalosporina'] = True
+                paciente.tratamientos_algo['levofloxacino'] = True
 
     # Para diagnósticos no concretos
-    elif paciente.visita.diagnostico == "No Concreto":
+    elif paciente.visita.diagnostico == "no_concret":
         # Realiza estudios adicionales o pruebas para TEP (tromboembolismo pulmonar)
-        paciente.AgudMPID["Tromboembolisme pulmonar (inclosa embòlia grassa)"] == True
+        paciente.AgudMPID['tromboembolisme_pulmonar'] == True
 
     if (paciente.MPID == True and
     paciente.simptomes['xiulets'] == False and
