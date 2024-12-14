@@ -30,6 +30,7 @@ class Patient:
     self.tratamientos_si = []
     self.tratamientos_no = []
     registro_tratamientos: Dict[datetime, str] = field(default_factory=dict)  # Tratamientos recibidos
+    registro_salida_algoritmo: Dict[datetime, Tuple[List[str], List[str]]] = {} # Salidas algoritmo
     self.pruebas = []
     self.malalties = (
       ["Infeccions", [
