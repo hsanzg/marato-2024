@@ -57,13 +57,11 @@ class Patient:
       )
     ]
     self.pruebas = []
-    self.malalties = (
+    self.AgudMPID = (
       ["Infeccions", [
           "Virus",
-          "Fongs",
-          "Bacteris",
-          "Oportunistes (CMV, Pneumocystis jirovecii, micobacteris tuberculoses i atípics)"
-      ],
+          "CMV",
+          "Pneumocystis jirovecii"])],
       "Insuficiència cardíaca esquerra",
       "Tromboembolisme pulmonar (inclosa embòlia grassa)",
       "Fàrmacs",
@@ -113,7 +111,7 @@ class Patient:
         ]
         for sintoma in sintomas_generales:
             if sintoma in sintomas_a_agregar and sintoma not in self.síntomas:
-                self.síntomas.append(sintoma)
+                self.sintomas.append(sintoma)
 
 
 unico_paciente = Patient(1)
