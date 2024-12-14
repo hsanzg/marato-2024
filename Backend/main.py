@@ -155,38 +155,50 @@ def algoritmo(paciente: Patient, vis_id: int):
 
     # Verifica si el diagnóstico es concreto o no
     if vis.diagnostico == "concret_no_pneumo":
-        print("El diagnóstico es específico pero no neumonía. No aplica un tratamiento específico.")
+        print("El diagnòstic es específic però no de pneumonia. No aplica un tractament específic.")
         return
 
     # Lógica específica para neumonía
     if vis.diagnostico == "concret_pneumo":
-
+        vis.diagnostico.mensaje +=  "El diagnòstic es específic de pneumonía i el pacient està"
         # Verifica el estado inmunológico
         if paciente.immunodeprimit:
+            vis.diagnostico.mensaje +=  "immunosuprimit"
             if paciente.AgudMPID['virus']:
                 print('Se detecta Virus Influenza')
+                vis.diagnostico.mensaje +=  "El pacient dóna positiu en Grip i se li dóna piperacilina o tazobactam i levofloxacino"
                 vis.tratamientos_algo.append('piperacilina_tazobactam')
                 vis.tratamientos_algo.append('levofloxacino')
             if paciente.AgudMPID['cmv']:
+                vis.diagnostico.mensaje +=  "El pacient dóna positiu en citomegalovirus i se li dóna ganciclovir"
                 print('Sospecha de Citomegalovirus (CMV)')
                 vis.tratamientos_algo.append('ganciclovir')
             if paciente.AgudMPID["pneumocystis jirovecii"]:
+                vis.diagnostico.mensaje +=  "El pacient dóna positiu en pneumocystis jirovecii i se li dóna sulfametoxazol_trimetoprim i ac_folic"
                 print('Sospecha de Pneumocystis jirovecii')
                 vis.tratamientos_algo.append('sulfametoxazol_trimetoprim')
                 vis.tratamientos_algo.append('ac_folic')
         elif not paciente.immunodeprimit:
+            vis.diagnostico.mensaje +=  "immunoconsistent."
             if paciente.AgudMPID['virus']:
+                vis.diagnostico.mensaje +=  "El pacient dóna positiu en grip i se li dóna oseltamivir"
                 print('Se detecta Virus Influenza')
                 vis.tratamientos_algo.append('oseltamivir')
             else:
+                vis.diagnostico.mensaje +=  "El pacient dóna negatiu en grip i per tant la causa és bacteriana i se li dóna cefalosporina i levofloxacino"
                 print('Neumonía bacteriana')
                 vis.tratamientos_algo.append('cefalosporina')
                 vis.tratamientos_algo.append('levofloxacino')
 
     # Para diagnósticos no concretos
     elif vis.diagnostico == "no_concret":
+        if paciente.AgudMPID['tromboembolisme_pulmonar'] == True:
+            vis.tratamientos_algo.append('tinzaparina')
+            vis.diagnostico.mensaje +=  "El pacient té Tromboembolisme Pulmonar i per tant se li dóna cefalosporina i levofloxacino"
         # Realiza estudios adicionales o pruebas para TEP (tromboembolismo pulmonar)
-        paciente.AgudMPID['tromboembolisme_pulmonar'] == True
+        if paciente.AgudMPID['tromboembolisme_pulmonar'] == False:
+            vis.diagnostico.mensaje +=  "Valorar parènquima pulmonar, el pacient requereix Ttm específic"
+
 
     if (paciente.MPID == True and
     paciente.simptomes['xiulets'] == False and
