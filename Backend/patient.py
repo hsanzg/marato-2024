@@ -17,9 +17,9 @@ class Visita:
     self.tratamientos_algo = []
 
 class Patient:
-  def __init__(self, id):
-    self.id = 1
-    self.nombre = 'Juan García López'
+  def __init__(self, id, nombre):
+    self.id = id
+    self.nombre = nombre
     self.sintomas = {
       # Información introducida por el médico de urgéncia y/o el paciente.
       'increment_o_aparcio_ofeg': False,

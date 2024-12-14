@@ -10,18 +10,18 @@
 <div class="card">
   <div class="card-body">
     <h3 class="card-title">Diagnóstico</h3>
-    <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off" checked>
-    <label class="btn" for="option5">Pneumònia</label>
+    <!--# Tipos de diagnóstico:
+# - concret_pneumo
+# - concret_no_pneumo
+# - no_concret-->
+    <input type="radio" class="btn-check" name="diag" value="concret_pneumo" id="concret_pneumo" autocomplete="off" checked>
+    <label class="btn" for="concret_pneumo">Pneumònia</label>
 
-    <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
-    <label class="btn" for="option6">No pneumònia</label>
+    <input type="radio" class="btn-check" name="diag" value="concret_no_pneumo" id="concret_no_pneumo" autocomplete="off">
+    <label class="btn" for="concret_no_pneumo">No pneumònia</label>
 
-    <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off" disabled>
-    <label class="btn" for="option7">Se desconoce</label>
-
-    <!--<input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
-    <label class="btn" for="option8">Radio</label>
-    <input type="hidden" name="" value="1">-->
+    <input type="radio" class="btn-check" name="diag" value="no_concret" id="no_concret" autocomplete="off" disabled>
+    <label class="btn" for="no_concret">Se desconoce</label>
   </div>
 </div>
 </form>
