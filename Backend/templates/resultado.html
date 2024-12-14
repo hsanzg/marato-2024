@@ -13,6 +13,12 @@
 </div>
 {% endif %}
 
+<div class="card mb-4">
+  <div class="card-body">
+    <p>{{res.mensaje }}</p>
+  </div>
+</div>
+
 <form action="/guardar_trats?dest=/especialista/{{pac.id}}" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
   <input type="hidden" name="res" value="{{ res_ix }}">
