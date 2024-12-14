@@ -52,8 +52,21 @@ def paciente(req: Request, id: str):
     context={'request': req, 'pac': pac}
   )
 
-@app.post('/guardar_paciente')
-async def guardar_paciente(req: Request):
+@app.post('/guardar_sintomas')
+async def guardar_sintomas(req: Request, dest: str):
+  async with req.form() as form:
+    id = form['id']
+    pac = cargar_paciente(id)
+    print('guardando síntomas de paciente')
+    for sin_name in pac.sintomas.keys():
+      new_val = sin_name in form
+      pac.sintomas[sin_name] = new_val
+      print(f'{sin_name} -> {new_val}')
+  print('redirigiendo a QR de paciente')
+  return RedirectResponse(dest, status_code=303) # POST->GET
+
+@app.post('/guardar_malalties')
+async def guardar_malalties(req: Request, dest: str):
   async with req.form() as form:
     id = form['id']
     pac = cargar_paciente(id)
@@ -63,7 +76,7 @@ async def guardar_paciente(req: Request):
       pac.sintomas[sin_name] = new_val
       print(f'{sin_name} -> {new_val}')
   print('redirigiendo a QR de paciente')
-  return RedirectResponse(f'verqr?id={id}', status_code=303) # POST->GET
+  return RedirectResponse(dest, status_code=303) # POST->GET
 
 # Páginas especialista.
 
