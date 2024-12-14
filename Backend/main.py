@@ -50,6 +50,7 @@ def paciente(req: Request, id: str):
     context={'request': req, 'pac': pac}
   )
 
+  
 @app.post('/guardar_paciente')
 def guardar_paciente(id: Annotated[str, Form()],
                      nombre: Annotated[str, Form()]):
