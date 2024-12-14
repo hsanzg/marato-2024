@@ -1,8 +1,13 @@
+from datetime import datetime
+from dataclasses import dataclass, field
+from typing import List, Dict
+
+
 class Patient:
   def __init__(self, id):
     self.id = 1
     self.nombre = 'Juan García López'
-    self.sintomas: ([
+    self.síntomas: ([
       #Información introducida por el médico de urgéncia y/o el paciente
       "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
       "Increment mucositat i congestió nasal",
@@ -22,58 +27,10 @@ class Patient:
       "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
       "To blau distal als dits o llavis"
     ])
-    self.tratamientos_si = ([
-    #Información introducida por el médico de urgéncia y/o el paciente
-    "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
-    "Increment mucositat i congestió nasal",
-    "Increment mucositat i dolor gola",
-    "Increment mucositat i febre",
-    "Dolor toràcic",
-    "Xiulets",
-    "Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola",
-    "Dolor toràcic e increment d’ofec sense tos ni altres símptomes",
-
-    # Información introducïda por el médico de urgéncia
-    "Febre",
-    "Desaturació",
-    "Increment respiracions per minut o respiracions per minut > 19",
-    "Tiratge muscular per respirar",
-    "Ofeg en repòs",
-    "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
-    "To blau distal als dits o llavis"
-])
-    self.tratamientos_no = ([
-    #Información introducida por el médico de urgéncia y/o el paciente
-    "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
-    "Increment mucositat i congestió nasal",
-    "Increment mucositat i dolor gola",
-    "Increment mucositat i febre",
-    "Dolor toràcic",
-    "Xiulets",
-    "Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola",
-    "Dolor toràcic e increment d’ofec sense tos ni altres símptomes",
-
-    # Información introducïda por el médico de urgéncia
-    "Febre",
-    "Desaturació",
-    "Increment respiracions per minut o respiracions per minut > 19",
-    "Tiratge muscular per respirar",
-    "Ofeg en repòs",
-    "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
-    "To blau distal als dits o llavis"
-])
-    self.pruebas = ([
-    "Analítica urgent (bioquímica, hemograma, coagulació)",
-    "Gasometria arterial (PaO2/FIO2)",
-    "ECG",
-    "Rx tòrax",
-    "Microbiologia: Esput (gram i cultiu convencional, fongs/micobacteris)",
-    "Antigenúria (pneumococ/legionella)",
-    "Hemocultius",
-    "PCR virus Influenza A i B (si sospita grip)",
-    "ANGIO-TACAR + D-Dímer (si sospita TEP)",
-    "Valoració parènquima pulmonar"
-])
+    self.tratamientos_si = []
+    self.tratamientos_no = []
+    registro_tratamientos: Dict[datetime, str] = field(default_factory=dict)  # Tratamientos recibidos
+    self.pruebas = []
     self.malalties = (
       ["Infeccions", [
           "Virus",
@@ -92,10 +49,10 @@ class Patient:
       "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies",
       "Pneumotòrax",
       "Contusió pulmonar",
-      "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"
-])
+      "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
+    )
 
-    def introducir_sintomas_graves(self, sintomas_graves: [str]):
+    def añadir_sintomas_graves(self, sintomas_graves: [str]):
         """
         Añade una lista de síntomas graves al atributo 'síntomas' del paciente.
         Esta función es llamada por el médico de urgencia solamente.
@@ -113,7 +70,7 @@ class Patient:
             if sintoma in sintomas_a_agregar and sintoma not in self.síntomas:
                 self.síntomas.append(sintoma)
 
-    def introducir_sintomas_generales(self, sintomas_generales: [str]):
+    def añadir_sintomas_generales(self, sintomas_generales: [str]):
         """
         Añade una lista de síntomas generales al atributo 'síntomas' del paciente.
         Esta función es llamada por el médico especialista o por el paciente
