@@ -4,11 +4,9 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-# Tipos.
+from patient import Patient, cargar_paciente
 
-class Paciente:
-  def __init__(self):
-    pass
+# Tipos.
 
 app = FastAPI()
 templates = Jinja2Templates(directory='templates')
@@ -28,14 +26,16 @@ def paciente(req: Request):
   )
 
 @app.get('/verqr', response_class=HTMLResponse)
-def paciente(req: Request):
+def paciente(req: Request, id: int):
+  pac = cargar_paciente(id)
   return templates.TemplateResponse(
-    name='verqr.html', context={'request': req}
+    name='verqr.html', context={'request': req, nombrePac: pac.nombre}
   )
 
 @app.get('/datos_paciente/{id}')
 def datos_paciente(id: int):
   print(f'cargando datos de paciente {id}')
+  pat = cargar_paciente(id)
   return {'id': id}
 
 app.mount('/static', StaticFiles(directory='static', html=True), name='static')

@@ -2,11 +2,16 @@
 <!--Esta página enseña el QR del paciente.-->
 
 <link rel="stylesheet" href="/static/lector-qr.css">
+<style>
+  #codigoqr > img {
+    margin: 0 auto;
+  }
+</style>
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 <main class="formulario w-100 m-auto">
-  <h1 class="h3 mb-3 fw-normal text-center">Código QR</h1>
+  <h1 class="h3 mb-3 fw-normal text-center">{{nombrePac}}</h1>
   <div class="form-floating">
-    <div id="codigoqr"></div>
+    <div class="text-center" id="codigoqr"></div>
   </div>
 </main>
 

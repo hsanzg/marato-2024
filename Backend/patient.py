@@ -1,7 +1,7 @@
-class Pacient:
-    id: uuid.UUID
+class Patient:
+    id: int
     nombre: str
-    síntomas: List[str] = ([
+    síntomas: [str] = ([
     #Información introducida por el médico de urgéncia y/o el paciente
     "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
     "Increment mucositat i congestió nasal",
@@ -21,10 +21,10 @@ class Pacient:
     "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
     "To blau distal als dits o llavis"
 ])
-    medicaments_si: List[str]
-    medicaments_no: List[str]
-    pruebas: List[str]
-    malalties: List[str] = (
+    medicaments_si: [str]
+    medicaments_no: [str]
+    pruebas: [str]
+    malalties: [str] = (
         ["Infeccions", [
             "Virus",
             "Fongs",
@@ -44,3 +44,7 @@ class Pacient:
         "Contusió pulmonar",
         "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
     )
+
+
+def cargar_paciente(id: int) -> Patient:
+  return Patient()
