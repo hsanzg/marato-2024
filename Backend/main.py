@@ -1,6 +1,7 @@
 from typing import Annotated
 from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
+from fastapi.encoders import jsonable_encoder
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
@@ -36,7 +37,7 @@ def paciente(req: Request, id: int):
 def datos_paciente(id: int):
   print(f'cargando datos de paciente {id}')
   pat = cargar_paciente(id)
-  return {'id': id}
+  return jsonable_encoder(pat)
 
 app.mount('/static', StaticFiles(directory='static', html=True), name='static')
 
@@ -44,13 +45,12 @@ app.mount('/static', StaticFiles(directory='static', html=True), name='static')
 
 @app.get('/paciente/{id}', response_class=HTMLResponse)
 def paciente(req: Request, id: str):
-  pac = Paciente()
+  pac = cargar_paciente(id)
   return templates.TemplateResponse(
     name='paciente.html',
     context={'request': req, 'pac': pac}
   )
 
-  
 @app.post('/guardar_paciente')
 def guardar_paciente(id: Annotated[str, Form()],
                      nombre: Annotated[str, Form()]):
@@ -62,7 +62,7 @@ def guardar_paciente(id: Annotated[str, Form()],
 
 @app.get('/especialista/{pac_id}', response_class=HTMLResponse)
 def paciente(req: Request, pac_id: int):
-  pac = Paciente()
+  pac = cargar_paciente(pac_id)
   return templates.TemplateResponse(
     name='especialista.html',
     context={'request': req, 'pac': pac}
