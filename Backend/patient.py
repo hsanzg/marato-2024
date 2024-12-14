@@ -22,8 +22,46 @@ class Patient:
       "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
       "To blau distal als dits o llavis"
     ])
-    self.tratamientos_si = []
-    self.tratamientos_no = []
+    self.tratamientos_si = ([
+    #Información introducida por el médico de urgéncia y/o el paciente
+    "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
+    "Increment mucositat i congestió nasal",
+    "Increment mucositat i dolor gola",
+    "Increment mucositat i febre",
+    "Dolor toràcic",
+    "Xiulets",
+    "Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola",
+    "Dolor toràcic e increment d’ofec sense tos ni altres símptomes",
+
+    # Información introducïda por el médico de urgéncia
+    "Febre",
+    "Desaturació",
+    "Increment respiracions per minut o respiracions per minut > 19",
+    "Tiratge muscular per respirar",
+    "Ofeg en repòs",
+    "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
+    "To blau distal als dits o llavis"
+])
+    self.tratamientos_no = ([
+    #Información introducida por el médico de urgéncia y/o el paciente
+    "Increment o aparició d’ofeg i/o tos en els darrers dies (màxim darreres 2 setmanes), sense altres símptomes o amb altres símptomes",
+    "Increment mucositat i congestió nasal",
+    "Increment mucositat i dolor gola",
+    "Increment mucositat i febre",
+    "Dolor toràcic",
+    "Xiulets",
+    "Increment de la mucositat, mal estat general, +/- congestió nasal o dolor gola",
+    "Dolor toràcic e increment d’ofec sense tos ni altres símptomes",
+
+    # Información introducïda por el médico de urgéncia
+    "Febre",
+    "Desaturació",
+    "Increment respiracions per minut o respiracions per minut > 19",
+    "Tiratge muscular per respirar",
+    "Ofeg en repòs",
+    "Auscultació de xiulets (sibilants) o altres sorolls diferents als que té el pacient de base",
+    "To blau distal als dits o llavis"
+])
     self.pruebas = []
     self.malalties = (
       ["Infeccions", [
@@ -46,7 +84,7 @@ class Patient:
       "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
     )
 
-    def añadir_sintomas_graves(self, sintomas_graves: [str]):
+    def introducir_sintomas_graves(self, sintomas_graves: [str]):
         """
         Añade una lista de síntomas graves al atributo 'síntomas' del paciente.
         Esta función es llamada por el médico de urgencia solamente.
@@ -64,7 +102,7 @@ class Patient:
             if sintoma in sintomas_a_agregar and sintoma not in self.síntomas:
                 self.síntomas.append(sintoma)
 
-    def añadir_sintomas_generales(self, sintomas_generales: [str]):
+    def introducir_sintomas_generales(self, sintomas_generales: [str]):
         """
         Añade una lista de síntomas generales al atributo 'síntomas' del paciente.
         Esta función es llamada por el médico especialista o por el paciente
