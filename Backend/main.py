@@ -133,7 +133,7 @@ def Algoritmo(paciente: Patient):
     if paciente.visita[-1].diagnostico == "Pneumonia":
 
         # Verifica el estado inmunológico
-        if paciente.condition == "Immunosuprimit":
+        if paciente.immunodeprimit == 1:
             if paciente.AgudMPID["Virus"]:
                 # Se detecta Virus Influenza
                 paciente.tratamientos_algo['Piperacilina/Tazobactam 4g/0,5g cada 8h e.v.'] = True
@@ -146,7 +146,7 @@ def Algoritmo(paciente: Patient):
                 paciente.tratamientos_algo['Sulfametoxazol/trimetoprim 800/160 mg/12h v.o.'] = True
                 paciente.tratamientos_algo['Àc. Fòlic'] = True
 
-        elif paciente.visita[-1].condition == "Immunocompetent":
+        elif paciente.immunodeprimit == 0:
             if paciente.AgudMPID["Virus"]:
                 # Se detecta Virus Influenza
                 paciente.tratamientos_algo['Oseltamivir 75mg/12h v.o.'] = True
@@ -160,4 +160,9 @@ def Algoritmo(paciente: Patient):
         # Realiza estudios adicionales o pruebas para TEP (tromboembolismo pulmonar)
         paciente.AgudMPID["Tromboembolisme pulmonar (inclosa embòlia grassa)"] == True
 
-    if paciente.MPID == True and paciente.simptomes['xiulets']==False and paciente.simptomes['virus']==
+    if (paciente.MPID == True and
+    paciente.simptomes['xiulets'] == False and
+    paciente.simptomes['virus'] == False and
+    paciente.simptomes['increment_mucositat'] == False and
+    paciente.simptomes['tos_en_els_darrers_dies'] == False):
+        paciente.visita[-1].bronco = 1
