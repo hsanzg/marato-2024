@@ -29,7 +29,7 @@ def paciente(req: Request):
 def paciente(req: Request, id: int):
   pac = cargar_paciente(id)
   return templates.TemplateResponse(
-    name='verqr.html', context={'request': req, nombrePac: pac.nombre}
+    name='verqr.html', context={'request': req, 'nombrePac': pac.nombre}
   )
 
 @app.get('/datos_paciente/{id}')
