@@ -53,7 +53,7 @@ def paciente(req: Request, id: str):
   )
 
 @app.post('/guardar_sintomas')
-async def guardar_sintomas(req: Request, dest: str = '', correr_algo: bool = False, diag: str = ''):
+async def guardar_sintomas(req: Request, dest: str = '', correr_algo: bool = False):
   async with req.form() as form:
     id = form['id']
     pac = cargar_paciente(id)
@@ -62,10 +62,14 @@ async def guardar_sintomas(req: Request, dest: str = '', correr_algo: bool = Fal
       new_val = sin_name in form
       pac.sintomas[sin_name] = new_val
       print(f'{sin_name} -> {new_val}')
-  if correr_algo:
-    print('corriendo algoritmo para generar visita')
-    res_ix = pac.crear_visita(diag) # diagnóstico
-    dest = f'/resultado/{id}/{res_ix}'
+    print(f'actualizando otros a {form['altres']}')
+    pac.altres_sint = form['altres']
+    if correr_algo:
+      diagnostico = form['diagnostico']
+      print(f'corriendo algoritmo para generar visita, diagnostico={diagnostico}')
+      res_ix = pac.crear_visita(diagnostico) # diagnóstico
+      algoritmo(pac, res_ix)
+      dest = f'/resultado/{id}/{res_ix}'
   print(f'redirigiendo a {dest}')
   return RedirectResponse(dest, status_code=303) # POST->GET
 
@@ -142,43 +146,45 @@ async def guardar_trats(req: Request, dest: str):
 
 #Algoritmo
 
-def Algoritmo(paciente: Patient):
+def algoritmo(paciente: Patient, vis_id: int):
     """
     Define el algoritmo de tratamiento basado en el diagnóstico del paciente, su condición y los resultados de las pruebas.
     """
+    vis = paciente.urgencias[vis_id]
+    print(vis.diagnostico)
 
     # Verifica si el diagnóstico es concreto o no
-    if paciente.visita[-1].diagnostico == "concret_no_pneumo":
-        #print("El diagnóstico es específico pero no neumonía. No aplica un tratamiento específico.")
+    if vis.diagnostico == "concret_no_pneumo":
+        print("El diagnóstico es específico pero no neumonía. No aplica un tratamiento específico.")
         return
 
     # Lógica específica para neumonía
-    if paciente.visita[-1].diagnostico == "concret_pneumo":
+    if vis.diagnostico == "concret_pneumo":
 
         # Verifica el estado inmunológico
         if paciente.immunodeprimit:
             if paciente.AgudMPID['virus']:
-                # Se detecta Virus Influenza
-                paciente.tratamientos_algo['piperacilina_tazobactam'] = True
-                paciente.tratamientos_algo['levofloxacino'] = True
+                print('Se detecta Virus Influenza')
+                vis.tratamientos_algo.append('piperacilina_tazobactam')
+                vis.tratamientos_algo.append('levofloxacino')
             if paciente.AgudMPID['cmv']:
-                # Sospecha de Citomegalovirus (CMV)
-                paciente.tratamientos_algo['ganciclovir'] = True
+                print('Sospecha de Citomegalovirus (CMV)')
+                vis.tratamientos_algo.append('ganciclovir')
             if paciente.AgudMPID["pneumocystis jirovecii"]:
-                # Sospecha de Pneumocystis jirovecii
-                paciente.tratamientos_algo['sulfametoxazol_trimetoprim'] = True
-                paciente.tratamientos_algo['ac_folic'] = True
+                print('Sospecha de Pneumocystis jirovecii')
+                vis.tratamientos_algo.append('sulfametoxazol_trimetoprim')
+                vis.tratamientos_algo.append('ac_folic')
         elif not paciente.immunodeprimit:
             if paciente.AgudMPID['virus']:
-                # Se detecta Virus Influenza
-                paciente.tratamientos_algo['oseltamivir'] = True
+                print('Se detecta Virus Influenza')
+                vis.tratamientos_algo.append('oseltamivir')
             else:
-                # Neumonía bacteriana
-                paciente.tratamientos_algo['cefalosporina'] = True
-                paciente.tratamientos_algo['levofloxacino'] = True
+                print('Neumonía bacteriana')
+                vis.tratamientos_algo.append('cefalosporina')
+                vis.tratamientos_algo.append('levofloxacino')
 
     # Para diagnósticos no concretos
-    elif paciente.visita.diagnostico == "no_concret":
+    elif vis.diagnostico == "no_concret":
         # Realiza estudios adicionales o pruebas para TEP (tromboembolismo pulmonar)
         paciente.AgudMPID['tromboembolisme_pulmonar'] == True
 
@@ -187,4 +193,4 @@ def Algoritmo(paciente: Patient):
     paciente.simptomes['virus'] == False and
     paciente.simptomes['increment_mucositat'] == False and
     paciente.simptomes['tos_en_els_darrers_dies'] == False):
-        paciente.visita[-1].bronco = True
+        vis.bronco = True

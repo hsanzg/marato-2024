@@ -60,6 +60,7 @@ class Patient:
       "auscultacio_de_xiulets": False, #  (sibilants) o altres sorolls diferents als que té el pacient de base
       "to_blau_distal": False # als dits o llavis
     }
+    self.altres_sint = ''
     self.tratamientos = {trat_id: False for trat_id in NOMBRES_TRATS.keys()}
     self.urgencias = []
     self.pruebas = []
@@ -67,7 +68,7 @@ class Patient:
     self.AgudMPID = {
       'virus': False,
       "cmv": False,
-      "pneumocystis jirovecii": False,
+      "pneumocystis_jirovecii": False,
       'insuficiencia_cardiaca_esquerra': False,
       'tromboembolisme_pulmonar': False,
       'farmacs': False,

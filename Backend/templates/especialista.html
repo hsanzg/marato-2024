@@ -2,7 +2,7 @@
 <!-- Página médico especialista. -->
 <div class="shadow p-3 mb-5 card tarjeta">
   <div class="card-body">
-    <h3 class="card-title">Tratamientos</h3>
+    <h3 class="card-title">Tractaments actuals</h3>
   </div>
   <ul class="list-group list-group-flush">
     {% for trat, valor in pac.tratamientos.items() %}
@@ -43,6 +43,24 @@
   <div class="card-body">
     <div class="form-header">
       <h3 class="card-title">Causes d’agudització</h3>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="virus" {% if pac.AgudMPID['virus'] %}checked{% endif %}>
+      <label class="form-check-label">
+        Infecció viral
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="pneumocystis_jirovecii" {% if pac.AgudMPID['pneumocystis_jirovecii'] %}checked{% endif %}>
+      <label class="form-check-label">
+        Pneumocystis jirovecii
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="cmv" {% if pac.AgudMPID['cmv'] %}checked{% endif %}>
+      <label class="form-check-label">
+        Citomegalovirus
+      </label>
     </div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="insuficiencia_cardiaca_esquerra" {% if pac.AgudMPID['insuficiencia_cardiaca_esquerra'] %}checked{% endif %}>
