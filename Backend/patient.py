@@ -68,7 +68,7 @@ class Patient:
       "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
     )
 
-    def añadir_sintomas_graves(self, sintomas_graves: [str]):
+    def introducir_sintomas_graves(self, sintomas_graves: [str]):
         """
         Añade una lista de síntomas graves al atributo 'síntomas' del paciente.
         Esta función es llamada por el médico de urgencia solamente.
@@ -86,7 +86,7 @@ class Patient:
             if sintoma in sintomas_a_agregar and sintoma not in self.síntomas:
                 self.síntomas.append(sintoma)
 
-    def añadir_sintomas_generales(self, sintomas_generales: [str]):
+    def introducir_sintomas_generales(self, sintomas_generales: [str]):
         """
         Añade una lista de síntomas generales al atributo 'síntomas' del paciente.
         Esta función es llamada por el médico especialista o por el paciente
