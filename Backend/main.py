@@ -111,10 +111,33 @@ def resultado(req: Request, pac_id: int, res_id: int):
     res = pac.urgencias[res_id]
     return templates.TemplateResponse(
       name='resultado.html',
-      context={'request': req, 'pac': pac, 'res': res}
+      context={'request': req, 'pac': pac, 'res': res, 'res_ix': res_id }
     )
   except IndexError:
     return RedirectResponse(f'/urgencia/{pac_id}', status_code=303) # POST->GET
+
+@app.post('/guardar_trats')
+async def guardar_trats(req: Request, dest: str):
+  async with req.form() as form:
+    pac_id = form['id']
+    pac = cargar_paciente(pac_id)
+    res_ix = int(form['res'])
+    try:
+      res = pac.urgencias[res_ix]
+    except IndexError:
+      print(f'no hemos encontrado res {res_ix} para paciente {pac_id}')
+      return RedirectResponse('/', status_code=303) # POST->GET
+    assig_trats = []
+    print(f'guardando tratamientos de paciente en urgencia {res_ix}')
+    for trat_name in pac.tratamientos.keys():
+      new_val = trat_name in form
+      pac.tratamientos[trat_name] = new_val
+      print(f'{trat_name} -> {new_val}')
+      if new_val:
+        assig_trats.append(trat_name)
+    res.tratamientos_dados = assig_trats
+  print(f'redirigiendo a {dest}')
+  return RedirectResponse(dest, status_code=303) # POST->GET
 
 
 #Algoritmo
@@ -133,7 +156,7 @@ def Algoritmo(paciente: Patient):
     if paciente.visita[-1].diagnostico == "Pneumonia":
 
         # Verifica el estado inmunológico
-        if paciente.immunodeprimit == 1:
+        if paciente.immunodeprimit:
             if paciente.AgudMPID["Virus"]:
                 # Se detecta Virus Influenza
                 paciente.tratamientos_algo['Piperacilina/Tazobactam 4g/0,5g cada 8h e.v.'] = True
@@ -146,7 +169,7 @@ def Algoritmo(paciente: Patient):
                 paciente.tratamientos_algo['Sulfametoxazol/trimetoprim 800/160 mg/12h v.o.'] = True
                 paciente.tratamientos_algo['Àc. Fòlic'] = True
 
-        elif paciente.immunodeprimit == 0:
+        elif not paciente.immunodeprimit:
             if paciente.AgudMPID["Virus"]:
                 # Se detecta Virus Influenza
                 paciente.tratamientos_algo['Oseltamivir 75mg/12h v.o.'] = True
@@ -165,4 +188,4 @@ def Algoritmo(paciente: Patient):
     paciente.simptomes['virus'] == False and
     paciente.simptomes['increment_mucositat'] == False and
     paciente.simptomes['tos_en_els_darrers_dies'] == False):
-        paciente.visita[-1].bronco = 1
+        paciente.visita[-1].bronco = True
