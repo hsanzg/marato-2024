@@ -53,9 +53,15 @@ def paciente(req: Request, id: str):
   )
 
 @app.post('/guardar_paciente')
-def guardar_paciente(id: Annotated[str, Form()],
-                     nombre: Annotated[str, Form()]):
-  print('guardando datos de paciente')
+async def guardar_paciente(req: Request):
+  async with req.form() as form:
+    id = form['id']
+    pac = cargar_paciente(id)
+    print('guardando datos de paciente')
+    for sin_name in pac.sintomas.keys():
+      new_val = sin_name in form
+      pac.sintomas[sin_name] = new_val
+      print(f'{sin_name} -> {new_val}')
   print('redirigiendo a QR de paciente')
   return RedirectResponse(f'verqr?id={id}', status_code=303) # POST->GET
 

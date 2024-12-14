@@ -5,62 +5,61 @@
   <div>
   <p>¿Quins d'aquets síntomes presentes?</p>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="increment_o_aparcio_ofeg">
-    <!--{{ pac.sintomas['increment_o_aparcio_ofeg'] }}-->
+    <input class="form-check-input" type="checkbox" name="increment_o_aparcio_ofeg" {% if pac.sintomas['increment_o_aparcio_ofeg'] %}checked{% endif %}>
     <label class="form-check-label">
       Increment o aparició d’ofeg
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="tos_en_els_darrers_dies">
+    <input class="form-check-input" type="checkbox" name="tos_en_els_darrers_dies" {% if pac.sintomas['tos_en_els_darrers_dies'] %}checked{% endif %}>
     <label class="form-check-label">
         Tos en els darrers dies (màxim darreres 2 setmanes)
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="increment_mucositat">
+    <input class="form-check-input" type="checkbox" name="increment_mucositat" {% if pac.sintomas['increment_mucositat'] %}checked{% endif %}>
     <label class="form-check-label">
         Increment mucositat
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="congestio_nasal">
+    <input class="form-check-input" type="checkbox" name="congestio_nasal" {% if pac.sintomas['congestio_nasal'] %}checked{% endif %}>
     <label class="form-check-label">
         Congestió nasal
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="dolor_gola">
+    <input class="form-check-input" type="checkbox" name="dolor_gola" {% if pac.sintomas['dolor_gola'] %}checked{% endif %}>
     <label class="form-check-label">
         Dolor gola
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="febre">
+    <input class="form-check-input" type="checkbox" name="febre" {% if pac.sintomas['febre'] %}checked{% endif %}>
     <label class="form-check-label">
         Febre
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="dolor_toracic">
+    <input class="form-check-input" type="checkbox" name="dolor_toracic" {% if pac.sintomas['dolor_toracic'] %}checked{% endif %}>
     <label class="form-check-label">
         Dolor toràcic
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="xiulets">
+    <input class="form-check-input" type="checkbox" name="xiulets" {% if pac.sintomas['xiulets'] %}checked{% endif %}>
     <label class="form-check-label">
         Xiulets
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="mal_estat_general">
+    <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
     <label class="form-check-label">
         Mal estat general
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="altres_simptomes">
+    <input class="form-check-input" type="checkbox" name="altres_simptomes" {% if pac.sintomas['altres_simptomes'] %}checked{% endif %}>
     <label class="form-check-label">
         Altres símptomes
     </label>
