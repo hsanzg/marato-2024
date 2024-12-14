@@ -57,23 +57,26 @@ class Patient:
       )
     ]
     self.pruebas = []
-    self.AgudMPID = {
-            "Virus": False,
-            "CMV": False,
-            "Pneumocystis jirovecii": False,
-            "Insuficiència cardíaca esquerra": False,
-            "Tromboembolisme pulmonar (inclosa embòlia grassa)": False,
-            "Fàrmacs": False,
-            "Transfusió de sang": False,
-            "Inhalació aguda de tòxics pulmonars": False,
-            "Reflux gastroesofàgic (RGE)": False,
-            "Causes d’abdomen agut (pancreatitis, apendicitis, peritonitis, etc.)": False,
-            "Intervencions quirúrgiques en les setmanes prèvies": False,
-            "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies": False,
-            "Pneumotòrax": False,
-            "Contusió pulmonar": False,
-            "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)": False
-        }
+    self.malalties = (
+      ["Infeccions", [
+          "Virus",
+          "Fongs",
+          "Bacteris",
+          "Oportunistes (CMV, Pneumocystis jirovecii, micobacteris tuberculoses i atípics)"
+      ],
+      "Insuficiència cardíaca esquerra",
+      "Tromboembolisme pulmonar (inclosa embòlia grassa)",
+      "Fàrmacs",
+      "Transfusió de sang",
+      "Inhalació aguda de tòxics pulmonars",
+      "Reflux gastroesofàgic (RGE)",
+      "Causes d’abdomen agut (pancreatitis, apendicitis, peritonitis, etc.)",
+      "Intervencions quirúrgiques en les setmanes prèvies",
+      "Procediments invasius (endoscòpia, radioteràpia) en les setmanes prèvies",
+      "Pneumotòrax",
+      "Contusió pulmonar",
+      "Exacerbació aguda (ExA) de la malaltia pulmonar intersticial de base (com en la FPI)"]
+    )
 
     def introducir_sintomas_graves(self, sintomas_graves: [str]):
         """
@@ -110,7 +113,7 @@ class Patient:
         ]
         for sintoma in sintomas_generales:
             if sintoma in sintomas_a_agregar and sintoma not in self.síntomas:
-                self.sintomas.append(sintoma)
+                self.síntomas.append(sintoma)
 
 
 pacientes = [

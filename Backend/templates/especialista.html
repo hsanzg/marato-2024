@@ -22,12 +22,135 @@
   <ul class="list-group list-group-flush">
     {% for visita in pac.urgencias %}
       <li class="list-group-item flex">
-
-        <span><strong>Fecha:</strong> {{visita.fecha}}</span>
-        <span></span>
-        <span></span>
+        <span><strong>Fecha:</strong> {{visita.fecha.strftime('%d/%m/%y %H:%M') }}</span>
+        <ul>
+          <li><em>Tratamientos asignados:</em> {{visita.tratamientos_dados | join(', ')}}.</li>
+          <li><em>El algoritmo sugirió:</em> {{visita.tratamientos_algo | join(', ')}}.</li>
+        </ul>
       </li>
     {% endfor %}
   </ul>
 </div>
+
+<div class="card tarjeta">
+  <div class="card-body">
+    <div class="form-header">
+      <h3 class="card-title">Condiciones</h3>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="increment_o_aparcio_ofeg" {% if pac.sintomas['increment_o_aparcio_ofeg'] %}checked{% endif %}>
+      <label class="form-check-label">
+        Increment o aparició d’ofeg
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="tos_en_els_darrers_dies" {% if pac.sintomas['tos_en_els_darrers_dies'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Tos en els darrers dies (màxim darreres 2 setmanes)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="increment_mucositat" {% if pac.sintomas['increment_mucositat'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Increment mucositat
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="congestio_nasal" {% if pac.sintomas['congestio_nasal'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Congestió nasal
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="dolor_gola" {% if pac.sintomas['dolor_gola'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Dolor gola
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="febre" {% if pac.sintomas['febre'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Febre
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="dolor_toracic" {% if pac.sintomas['dolor_toracic'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Dolor toràcic
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="xiulets" {% if pac.sintomas['xiulets'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Xiulets
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Mal estat general
+      </label>
+    </div>
+    <div class="form-check">
+      <div class="form-floating mb-3">
+        <input type="string" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Altres símptomes</label>
+      </div>
+    </div>
+    {% if sin_todos %}
+
+    <hr class="my-4">
+    <div>
+      <p>¿Quines condicions té el pacient?</p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Desaturacio
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Increment respiracions
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Tiratge muscular per respirar
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Ofeg en repos
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
+      <label class="form-check-label">
+          Auscultacio de xiulets
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="mal_estat_general" {% if pac.sintomas['mal_estat_general'] %}checked{% endif %}>
+      <label class="form-check-label">
+          To blau distal
+      </label>
+    </div>
+    <div class="form-check">
+      <div class="form-floating mb-3">
+        <input type="string" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Altres condicions</label>
+      </div>
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+
+
+
+
+
 {% include 'footer.html' %}
