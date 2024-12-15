@@ -5,6 +5,7 @@
   <div class="card-body">
     <h3 class="card-title">Tractaments actuals</h3>
   </div>
+  {% if has_trats %}
   <ul class="list-group list-group-flush">
     {% for trat, valor in pac.tratamientos.items() %}
       {% if valor %}
@@ -12,14 +13,20 @@
       {% endif %}
     {% endfor %}
   </ul>
+  {% else %}
+  <div class="alert alert-primary" role="alert">
+    No hay medicación asignada.
+  </div>
+  {% endif %}
   <div class="card-body">
-    <a href="#" class="card-link">Añadir</a>
+    <a href="#" class="card-link">Editar</a>
   </div>
 </div>
 <div class="shadow p-3 mb-5 mt-4 card tarjeta">
   <div class="card-body">
     <h3 class="card-title">Últimas visitas a urgencias</h3>
   </div>
+  {% if pac.urgencias %}
   <ul class="list-group list-group-flush">
     {% for visita in pac.urgencias %}
       <li class="list-group-item flex">
@@ -30,12 +37,12 @@
         </ul>
       </li>
     {% endfor %}
-    {% if not pac.urgencias %}
-    <div class="alert alert-primary" role="alert">
-    El paciente no ha visitado la urgencia en los últimos 5 años.
-    </div>
-    {% endif %}
   </ul>
+  {%else%}
+  <div class="alert alert-primary" role="alert">
+    El paciente no ha visitado la urgencia en los últimos 5 años.
+  </div>
+  {% endif %}
 </div>
 
 <form action="/guardar_malalties?dest=/especialista/{{pac.id}}" method="POST">
