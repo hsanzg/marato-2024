@@ -228,7 +228,7 @@ def algoritmo(paciente: Patient, vis_id: int):
 
     if (paciente.MPID == True and
     paciente.sintomas['xiulets'] == False and
-    paciente.sintomas['virus'] == False and
+    paciente.AgudMPID['virus'] == False and
     paciente.sintomas['increment_mucositat'] == False and
     paciente.sintomas['tos_en_els_darrers_dies'] == False):
         vis.bronco = True
