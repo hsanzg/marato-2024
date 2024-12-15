@@ -44,6 +44,24 @@ app.mount('/static', StaticFiles(directory='static', html=True), name='static')
 
 # Páginas paciente.
 
+@app.get('/login_paciente', response_class=HTMLResponse)
+def login_paciente(req: Request):
+  return templates.TemplateResponse(
+    name='login_paciente.html',
+    context={'request': req}
+  )
+
+@app.post('/iniciar_sesion')
+async def iniciar_sesion(req: Request):
+  async with req.form() as form:
+    id = form['user']
+    print(f'iniciando sesión para {id}')
+    pac = cargar_paciente(id)
+    id = pac.id
+    return RedirectResponse(f'/paciente/{id}', status_code=303) # POST->GET
+
+# Páginas inicio sesión.
+
 @app.get('/paciente/{id}', response_class=HTMLResponse)
 def paciente(req: Request, id: str):
   pac = cargar_paciente(id)
