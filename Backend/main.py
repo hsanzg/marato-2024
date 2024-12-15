@@ -94,9 +94,14 @@ async def guardar_malalties(req: Request, dest: str):
 @app.get('/especialista/{pac_id}', response_class=HTMLResponse)
 def paciente(req: Request, pac_id: int):
   pac = cargar_paciente(pac_id)
+  has_trats = False
+  for val in pac.tratamientos.values():
+    if val:
+      has_trats = True
+      break
   return templates.TemplateResponse(
     name='especialista.html',
-    context={'request': req, 'pac': pac, 'trat_names': NOMBRES_TRATS}
+    context={'request': req, 'pac': pac, 'trat_names': NOMBRES_TRATS, 'has_trats': has_trats}
   )
 
 # Páginas urgencia.
