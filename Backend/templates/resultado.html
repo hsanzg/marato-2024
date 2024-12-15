@@ -13,11 +13,13 @@
 </div>
 {% endif %}
 
+{% if res.mensaje %}
 <div class="shadow card mb-4">
   <div class="card-body">
     <p>{{res.mensaje }}</p>
   </div>
 </div>
+{% endif %}
 
 <form action="/guardar_trats?dest=/especialista/{{pac.id}}" method="POST">
   <input type="hidden" name="id" value="{{ pac.id }}">
