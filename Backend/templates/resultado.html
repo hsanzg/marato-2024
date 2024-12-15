@@ -30,92 +30,92 @@
     </div>
     <form>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="piperacilina_tazobactam" {% if 'piperacilina_tazobactam' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="piperacilina_tazobactam" id="piperacilina_tazobactam" {% if 'piperacilina_tazobactam' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="piperacilina_tazobactam">
       Piperacilina/Tazobactam <span class="detalle">4g/0,5g cada 8h e.v.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="cefalosporina" {% if 'cefalosporina' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="cefalosporina" id="cefalosporina" {% if 'cefalosporina' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="cefalosporina">
       Cefalosporina <span class="detalle">3ª generació</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="levofloxacino" {% if 'levofloxacino' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="levofloxacino" id="levofloxacino" {% if 'levofloxacino' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="levofloxacino">
       Levofloxacino <span class="detalle">500mg/24h v.o.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="oseltamivir" {% if 'oseltamivir' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="oseltamivir" id="oseltamivir" {% if 'oseltamivir' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="oseltamivir">
       Oseltamivir <span class="detalle">75mg/12h v.o.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="ganciclovir" {% if 'ganciclovir' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="ganciclovir" id="ganciclovir" {% if 'ganciclovir' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="ganciclovir">
       Ganciclovir <span class="detalle">5mg/Kg pes/12h e.v.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="sulfametoxazol_trimetoprim" {% if 'sulfametoxazol_trimetoprim' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="sulfametoxazol_trimetoprim" id="sulfametoxazol_trimetoprim" {% if 'sulfametoxazol_trimetoprim' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="sulfametoxazol_trimetoprim">
       Sulfametoxazol/trimetoprim <span class="detalle">800/160 mg/12h v.o.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="ac_folic" {% if 'ac_folic' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="ac_folic" id="ac_folic" {% if 'ac_folic' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="ac_folic">
       Àc. Fòlic
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="omeprazol" {% if 'omeprazol' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="omeprazol" id="omeprazol" {% if 'omeprazol' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="omeprazol">
       Omeprazol <span class="detalle">20mg/12-24h e.v.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="n_acetilcisteina" {% if 'n_acetilcisteina' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="n_acetilcisteina" id="n_acetilcisteina" {% if 'n_acetilcisteina' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="n_acetilcisteina">
       N-acetilcisteïna <span class="detalle">600mg/8h v.o.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="morfina" {% if 'morfina' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="morfina" id="morfina" {% if 'morfina' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="morfina">
       Morfina <span class="detalle">2,5-5mg s.c.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="bemiparina" {% if 'bemiparina' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="bemiparina" id="bemiparina" {% if 'bemiparina' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="bemiparina">
       Bemiparina <span class="detalle">2500-3500 UI/0,2 mL (segons Kg pes) s.c./dia</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="metilprednisolona" {% if 'metilprednisolona' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="metilprednisolona" id="metilprednisolona" {% if 'metilprednisolona' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="metilprednisolona">
       Metilprednisolona <span class="detalle">1-2 mg/Kg pes/d e.v.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="losartan" {% if 'losartan' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="losartan" id="losartan" {% if 'losartan' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="losartan">
       Losartan <span class="detalle">50mg/24h v.o.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="calci_vitamina_d" {% if 'calci_vitamina_d' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="calci_vitamina_d" id="calci_vitamina_d" {% if 'calci_vitamina_d' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="calci_vitamina_d">
       Calci + Vitamina D <span class="detalle">500mg/400 UI 2comp/d v.o.</span>
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="tinzaparina" {% if 'tinzaparina' in res.tratamientos_algo%}checked{% endif %}>
-    <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" name="tinzaparina" id="tinzaparina" {% if 'tinzaparina' in res.tratamientos_algo%}checked{% endif %}>
+    <label class="form-check-label" for="tinzaparina">
       Tinzaparina <span class="detalle">20000UI/0,5-0,9 mL (segons Kg pes)</span>
     </label>
   </div>
