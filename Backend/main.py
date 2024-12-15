@@ -104,6 +104,7 @@ async def guardar_malalties(req: Request, dest: str):
       print(f'{sin_name} -> {new_val}')
     pac.immunodeprimit = 'immunodeprimit' in form
     pac.fumador = 'fumador' in form
+    pac.MPID = 'MPID' in form
   print(f'redirigiendo a {dest}')
   return RedirectResponse(dest, status_code=303) # POST->GET
 
@@ -191,15 +192,15 @@ def algoritmo(paciente: Patient, vis_id: int):
             vis.mensaje +=  "immunosuprimit"
             if paciente.AgudMPID['virus']:
                 print('Se detecta Virus Influenza')
-                vis.mensaje +=  " El pacient dóna positiu en Grip i se li dóna piperacilina o tazobactam i levofloxacino"
+                vis.mensaje +=  " El pacient dóna positiu en Grip i se li dóna piperacilina o tazobactam i levofloxacino."
                 vis.tratamientos_algo.append('piperacilina_tazobactam')
                 vis.tratamientos_algo.append('levofloxacino')
             if paciente.AgudMPID['cmv']:
-                vis.mensaje +=  " El pacient dóna positiu en citomegalovirus i se li dóna ganciclovir"
+                vis.mensaje +=  " El pacient dóna positiu en citomegalovirus i se li dóna ganciclovir."
                 print('Sospecha de Citomegalovirus (CMV)')
                 vis.tratamientos_algo.append('ganciclovir')
             if paciente.AgudMPID["pneumocystis_jirovecii"]:
-                vis.mensaje +=  " El pacient dóna positiu en pneumocystis jirovecii i se li dóna sulfametoxazol_trimetoprim i ac_folic"
+                vis.mensaje +=  " El pacient dóna positiu en pneumocystis jirovecii i se li dóna sulfametoxazol_trimetoprim i ac_folic."
                 print('Sospecha de Pneumocystis jirovecii')
                 vis.tratamientos_algo.append('sulfametoxazol_trimetoprim')
                 vis.tratamientos_algo.append('ac_folic')
@@ -210,7 +211,7 @@ def algoritmo(paciente: Patient, vis_id: int):
                 print('Se detecta Virus Influenza')
                 vis.tratamientos_algo.append('oseltamivir')
             else:
-                vis.mensaje +=  " El pacient dóna negatiu en grip i per tant la causa és bacteriana i se li dóna cefalosporina i levofloxacino"
+                vis.mensaje +=  " El pacient dóna negatiu en grip i per tant la causa és bacteriana i se li dóna cefalosporina i levofloxacino."
                 print('Neumonía bacteriana')
                 vis.tratamientos_algo.append('cefalosporina')
                 vis.tratamientos_algo.append('levofloxacino')
@@ -219,15 +220,15 @@ def algoritmo(paciente: Patient, vis_id: int):
     elif vis.diagnostico == "no_concret":
         if paciente.AgudMPID['tromboembolisme_pulmonar'] == True:
             vis.tratamientos_algo.append('tinzaparina')
-            vis.mensaje +=  " El pacient té Tromboembolisme Pulmonar i per tant se li dóna cefalosporina i levofloxacino"
+            vis.mensaje +=  " El pacient té Tromboembolisme Pulmonar i per tant se li dóna cefalosporina i levofloxacino."
         # Realiza estudios adicionales o pruebas para TEP (tromboembolismo pulmonar)
         if paciente.AgudMPID['tromboembolisme_pulmonar'] == False:
-            vis.mensaje +=  " Valorar parènquima pulmonar, el pacient requereix Ttm específic"
+            vis.mensaje +=  " Valorar parènquima pulmonar, el pacient requereix Ttm específic."
 
 
     if (paciente.MPID == True and
-    paciente.simptomes['xiulets'] == False and
-    paciente.simptomes['virus'] == False and
-    paciente.simptomes['increment_mucositat'] == False and
-    paciente.simptomes['tos_en_els_darrers_dies'] == False):
+    paciente.sintomas['xiulets'] == False and
+    paciente.sintomas['virus'] == False and
+    paciente.sintomas['increment_mucositat'] == False and
+    paciente.sintomas['tos_en_els_darrers_dies'] == False):
         vis.bronco = True
