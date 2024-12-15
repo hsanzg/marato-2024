@@ -175,7 +175,7 @@ def algoritmo(paciente: Patient, vis_id: int):
                 vis.mensaje +=  "El pacient dóna positiu en citomegalovirus i se li dóna ganciclovir"
                 print('Sospecha de Citomegalovirus (CMV)')
                 vis.tratamientos_algo.append('ganciclovir')
-            if paciente.AgudMPID["pneumocystis jirovecii"]:
+            if paciente.AgudMPID["pneumocystis_jirovecii"]:
                 vis.mensaje +=  "El pacient dóna positiu en pneumocystis jirovecii i se li dóna sulfametoxazol_trimetoprim i ac_folic"
                 print('Sospecha de Pneumocystis jirovecii')
                 vis.tratamientos_algo.append('sulfametoxazol_trimetoprim')
